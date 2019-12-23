@@ -3,6 +3,7 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix Widgets Team
  */
+import { ActionValue, DynamicValue, EditableValue, NativeIcon } from "mendix";
 
 interface CommonProps<Style> {
     name: string;
@@ -10,5 +11,10 @@ interface CommonProps<Style> {
 }
 
 export interface NativePinInputProps<Style> extends CommonProps<Style> {
-    sampleText?: string;
+    dataAttr: EditableValue<BigJs.Big>;
+    maxLength: number;
+    deleteButtonIcon: DynamicValue<NativeIcon>;
+    deleteButtonDarkModeIcon?: DynamicValue<NativeIcon>;
+    onChangeAction?: ActionValue;
+    onInputCompleteAction?: ActionValue;
 }

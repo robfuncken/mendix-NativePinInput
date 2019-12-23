@@ -21,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Marcel Groeneweg/nativepininput/issues"
+    "url": "https://github.com/itvisors/mendix-nativepininput/issues"
   },
   "devDependencies": {
     "@mendix/pluggable-widgets-tools": "^8.3.1",
