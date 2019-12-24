@@ -9,6 +9,10 @@ export const styles = StyleSheet.create({
     container: {
         borderWidth: 0
     },
+    valueRow: {
+        paddingHorizontal: 20,
+        maxWidth: 600
+    },
     readonlyText: {
         textAlign: "center",
         fontSize: 25,
@@ -16,10 +20,9 @@ export const styles = StyleSheet.create({
         color: darkMode ? "#FFFFFF" : "#000000",
         height: 40
     },
-    valueRow: {
-        paddingHorizontal: 20,
-        paddingBottom: 20,
-        maxWidth: 600
+    validationMessage: {
+        color: "#ed1c24",
+        height: 20
     },
     buttonRow: {
         flexDirection: "row",
@@ -51,8 +54,5 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 25,
         color: darkMode ? "#FFFFFF" : "#000000",
-    },
-    validationMessage: {
-        color: "#ed1c24"
     }
 });

@@ -1,5 +1,5 @@
 import { Component, ReactNode, createElement } from "react";
-import { TextStyle, ViewStyle, View, TextInput } from "react-native";
+import { Text, TextStyle, ViewStyle, View, TextInput } from "react-native";
 import { NativePinInputProps } from "../typings/NativePinInputProps";
 import { Style } from "./utils/common";
 import { flattenStyles } from "./utils/common";
@@ -7,7 +7,6 @@ import { styles } from "./ui/styles";
 import { PinInputButton } from "./components/PinInputButton";
 import { ValueStatus } from "mendix";
 import { DeleteButton } from "./components/DeleteButton";
-import { ValidationErrorView } from "./components/ValidationErrorView";
 
 export interface CustomStyle extends Style {
     container: ViewStyle;
@@ -87,15 +86,16 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     }
 
     renderValidation(): ReactNode {
-        if (!this.props.dataAttr.validation) {
-            return null;
-        }
         let validation = undefined;
         if (this.props.dataAttr.validation) {
             validation = "" + this.props.dataAttr.validation;
+        } else {
+            validation = " ";
         }
         return (
-            <ValidationErrorView validationMessage={validation} style={this.styles}/>
+            <Text style={this.styles.validationMessage}>
+            {validation}
+        </Text>
         );
     }
 
