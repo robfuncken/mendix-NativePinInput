@@ -20,15 +20,9 @@
                 <description></description>
             </property>
             <systemProperty key="Visibility"/>
-        </propertyGroup>
-        <propertyGroup caption="Delete button">
             <property key="deleteButtonIcon" type="icon">
                 <caption>Icon</caption>
                 <description></description>
-            </property>
-            <property key="deleteButtonDarkModeIcon" type="icon" required="false">
-                <caption>Dark mode icon</caption>
-                <description>For dark mode, use this icon</description>
             </property>
         </propertyGroup>
         <propertyGroup caption="Events">

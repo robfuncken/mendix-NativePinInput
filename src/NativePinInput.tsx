@@ -1,5 +1,5 @@
 import { Component, ReactNode, createElement } from "react";
-import { TextStyle, ViewStyle, View } from "react-native";
+import { TextStyle, ViewStyle, View, TextInput } from "react-native";
 import { NativePinInputProps } from "../typings/NativePinInputProps";
 import { Style } from "./utils/common";
 import { flattenStyles } from "./utils/common";
@@ -7,23 +7,32 @@ import { styles } from "./ui/styles";
 import { PinInputButton } from "./components/PinInputButton";
 import { ValueStatus } from "mendix";
 import { DeleteButton } from "./components/DeleteButton";
+import { ValidationErrorView } from "./components/ValidationErrorView";
 
 export interface CustomStyle extends Style {
     container: ViewStyle;
+    readonlyText: TextStyle;
     buttonRow: ViewStyle;
+    valueRow: ViewStyle;
     touchableContainer: ViewStyle;
     emptyContainer: ViewStyle;
     iconWrapper: ViewStyle;
+    icon: TextStyle;
     caption: TextStyle;
+    validationMessage: TextStyle;
 }
 
 const defaultStyle: CustomStyle = {
     container: styles.container,
+    readonlyText: styles.readonlyText,
     buttonRow: styles.buttonRow,
+    valueRow: styles.valueRow,
     touchableContainer: styles.touchableContainer,
     iconWrapper: styles.iconWrapper,
+    icon: styles.icon,
     emptyContainer: styles.emptyContainer,
-    caption: styles.caption
+    caption: styles.caption,
+    validationMessage: styles.validationMessage
 };
 
 export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> {
@@ -32,15 +41,22 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     constructor(props: NativePinInputProps<CustomStyle>) {
         super(props);
 
-
         this.onClick = this.onClick.bind(this);
         this.onDeleteClick = this.onDeleteClick.bind(this);
-    }
+    };
+
+    state = {
+        textValue: ""
+    };
 
     render(): ReactNode {
 
         return (
             <View>
+                <View style={styles.valueRow}>
+                    <TextInput style={styles.readonlyText} value={this.state.textValue} secureTextEntry={true} />
+                    {this.renderValidation()}
+                </View>
                 <View style={styles.buttonRow}>
                     <PinInputButton caption="1" style={this.styles} onClick={this.onClick}/>
                     <PinInputButton caption="2" style={this.styles} onClick={this.onClick}/>
@@ -61,7 +77,6 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
                     <PinInputButton caption="0" style={this.styles} onClick={this.onClick}/>
                     <DeleteButton
                         deleteButtonIcon={this.props.deleteButtonIcon}
-                        deleteButtonDarkModeIcon={this.props.deleteButtonDarkModeIcon}
                         style={this.styles}
                         onClick={this.onDeleteClick}
                     />
@@ -69,6 +84,19 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
             </View>
         );
 
+    }
+
+    renderValidation(): ReactNode {
+        if (!this.props.dataAttr.validation) {
+            return null;
+        }
+        let validation = undefined;
+        if (this.props.dataAttr.validation) {
+            validation = "" + this.props.dataAttr.validation;
+        }
+        return (
+            <ValidationErrorView validationMessage={validation} style={this.styles}/>
+        );
     }
 
     onClick(value: string) {
@@ -83,6 +111,9 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         if (displayValueLength < this.props.maxLength) {
             // Add digit to value
             dataAttr.setTextValue(dataAttr.displayValue + value);
+            this.setState({
+                textValue: this.state.textValue + '*',
+            });
             displayValueLength++;
 
             // Execute on change action if more input expected,
@@ -101,13 +132,19 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     
     onDeleteClick() {
 
-        const { dataAttr } = this.props;
+        const { dataAttr, onChangeAction } = this.props;
 
         if (!dataAttr || dataAttr.status !== ValueStatus.Available) {
             return;
         }
         if (dataAttr.displayValue.length > 0) {
             dataAttr.setTextValue(dataAttr.displayValue.substr(0, dataAttr.displayValue.length - 1));
+            this.setState({
+                textValue: this.state.textValue.substr(0, this.state.textValue.length - 1)
+            });
+            if (onChangeAction && onChangeAction.canExecute && !onChangeAction.isExecuting) {
+                onChangeAction.execute();
+        }
         }
     }
 }
