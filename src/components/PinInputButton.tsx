@@ -15,13 +15,13 @@ export class PinInputButton extends Component<PinInputButtonProps> {
         const isAndroid = Platform.OS === "android";
         if (isAndroid) {
             return (
-                <TouchableNativeFeedback style={this.props.style.touchableContainer} onPress={() => this.onClick()}>
+                <TouchableNativeFeedback style={this.props.style.pinInputTouchable} onPress={() => this.onClick()}>
                     <Text style={this.props.style.caption}>{this.props.caption}</Text>
                 </TouchableNativeFeedback>
             );
         } else {
             return (
-                <TouchableOpacity style={this.props.style.touchableContainer} onPress={() => this.onClick()}>
+                <TouchableOpacity style={this.props.style.pinInputTouchable} onPress={() => this.onClick()}>
                     <Text style={this.props.style.caption}>{this.props.caption}</Text>
                 </TouchableOpacity>
             );

@@ -16,11 +16,12 @@ export const styles = StyleSheet.create({
     readonlyText: {
         textAlign: "center",
         fontSize: 25,
-        backgroundColor: darkMode ? "#1c1c1c" : "#f8f8f8",
+        backgroundColor: "transparent",
         color: darkMode ? "#FFFFFF" : "#000000",
         height: 40
     },
     validationMessage: {
+        textAlign: "center",
         color: "#ed1c24",
         height: 20
     },
@@ -31,7 +32,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 20,
         maxWidth: 600
     },
-    touchableContainer: {
+    pinInputTouchable: {
         width: 70,
         height: 70,
         backgroundColor: darkMode ? "#1c1c1c" : "#f8f8f8",
@@ -39,12 +40,17 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         borderRadius: 35
     },
+    deleteButtonTouchable: {
+        width: 70,
+        height: 70,
+        backgroundColor: "transparent",
+        alignItems: "center",
+        justifyContent: "center"
+    },
     emptyContainer: {
         width: 70,
         height: 70,
         backgroundColor: "transparent"
-    },
-    iconWrapper: {
     },
     icon: {
         fontSize: 25,

@@ -19,13 +19,13 @@ export class DeleteButton extends Component<DeleteButtonProps> {
         const isAndroid = Platform.OS === "android";
         if (isAndroid) {
             return (
-                <TouchableNativeFeedback style={this.props.style.touchableContainer} onPress={() => this.onClick()}>
+                <TouchableNativeFeedback style={this.props.style.deleteButtonTouchable} onPress={() => this.onClick()}>
                     <Text style={this.props.style.caption}>Del</Text>
                 </TouchableNativeFeedback>
             );
         } else {
             return (
-                <TouchableOpacity style={this.props.style.touchableContainer} onPress={() => this.onClick()}>
+                <TouchableOpacity style={this.props.style.deleteButtonTouchable} onPress={() => this.onClick()}>
                     {this.renderIcon(this.defaultIconGlyph, this.props.deleteButtonIcon)}
                 </TouchableOpacity>
             );

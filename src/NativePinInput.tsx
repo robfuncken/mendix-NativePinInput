@@ -13,9 +13,9 @@ export interface CustomStyle extends Style {
     readonlyText: TextStyle;
     buttonRow: ViewStyle;
     valueRow: ViewStyle;
-    touchableContainer: ViewStyle;
+    pinInputTouchable: ViewStyle;
+    deleteButtonTouchable: ViewStyle;
     emptyContainer: ViewStyle;
-    iconWrapper: ViewStyle;
     icon: TextStyle;
     caption: TextStyle;
     validationMessage: TextStyle;
@@ -26,8 +26,8 @@ const defaultStyle: CustomStyle = {
     readonlyText: styles.readonlyText,
     buttonRow: styles.buttonRow,
     valueRow: styles.valueRow,
-    touchableContainer: styles.touchableContainer,
-    iconWrapper: styles.iconWrapper,
+    pinInputTouchable: styles.pinInputTouchable,
+    deleteButtonTouchable: styles.deleteButtonTouchable,
     icon: styles.icon,
     emptyContainer: styles.emptyContainer,
     caption: styles.caption,
