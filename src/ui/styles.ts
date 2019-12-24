@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     },
     valueRow: {
         paddingHorizontal: 20,
-        maxWidth: 600
+        maxWidth: 360
     },
     readonlyText: {
         textAlign: "center",
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         paddingHorizontal: 20,
         paddingBottom: 20,
-        maxWidth: 600
+        maxWidth: 360
     },
     pinInputTouchable: {
         width: 70,
