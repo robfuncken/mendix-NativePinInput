@@ -9,6 +9,7 @@ This widget uses buttons and shows the number of entered digits in a readonly te
 - Secure PIN entry
 - Configurable number of digits
 - Configurable icon for the delete button
+- Supports validation feedback on the attribute
 - On change action
 - On input complete action
 - Widget styling responds to dark mode setting
