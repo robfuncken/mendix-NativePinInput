@@ -1,17 +1,19 @@
 ## NativePinInput
-[Native pin input]
+Native mobile pin input.
+
+From a security point of view, the regular input widgets are not suitable for pin entry, because the regular onscreen keyboard could be comprimised.
+
+This widget uses buttons and shows the number of entered digits in a readonly text box.
 
 ## Features
-[feature highlights]
+- Secure PIN entry
+- Configurable number of digits
+- Configurable icon for the delete button
+- On change action
+- On input complete action
+- Widget styling responds to dark mode setting
 
 ## Usage
-[step by step instructions]
-
-## Demo project
-[link to sandbox]
-
-## Issues, suggestions and feature requests
-[link to GitHub issues]
-
-## Development and contribution
-[specify contribute]
+- Your entity needs to have an integer attribute for the pin value.
+- Configure the number of digits for your situation.
+- Configure the action events where appropriate.
