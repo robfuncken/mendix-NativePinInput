@@ -1,5 +1,5 @@
 import { Component, ReactNode, createElement } from "react";
-import { Platform, Text, TouchableNativeFeedback, TouchableOpacity } from "react-native";
+import { Platform, TouchableNativeFeedback, TouchableOpacity } from "react-native";
 import { DynamicValue, NativeIcon, ValueStatus } from "mendix";
 import { Icon } from "mendix/components/native/Icon";
 
@@ -20,7 +20,7 @@ export class DeleteButton extends Component<DeleteButtonProps> {
         if (isAndroid) {
             return (
                 <TouchableNativeFeedback style={this.props.style.deleteButtonTouchable} onPress={() => this.onClick()}>
-                    <Text style={this.props.style.caption}>Del</Text>
+                    {this.renderIcon(this.defaultIconGlyph, this.props.deleteButtonIcon)}
                 </TouchableNativeFeedback>
             );
         } else {
