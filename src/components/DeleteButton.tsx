@@ -41,7 +41,7 @@ export class DeleteButton extends Component<DeleteButtonProps> {
             toBeRenderedIcon && toBeRenderedIcon.status === ValueStatus.Available
                 ? toBeRenderedIcon.value
                 : { type: "glyph", iconClass: glyph };
-
+        // Do not apply styling to touchable, but to the child view
         return (
             <View style={this.props.style.deleteButtonTouchable}>
                 <Icon color={this.props.style.icon.color} icon={nativeIcon} size={this.props.style.icon.fontSize} />

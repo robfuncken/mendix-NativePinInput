@@ -33,6 +33,7 @@ export class PinInputButton extends Component<PinInputButtonProps> {
     }
 
     private renderView = () => {
+        // Do not apply styling to touchable, but to the child view
         return (
             <View style={this.props.style.pinInputTouchable}>
                 <Text style={this.props.style.caption}>{this.props.caption}</Text>
