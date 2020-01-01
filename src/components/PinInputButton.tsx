@@ -1,5 +1,5 @@
 import { Component, ReactNode, createElement } from "react";
-import { Platform, Text, TouchableNativeFeedback, TouchableOpacity } from "react-native";
+import { Platform, Text, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 
 import { CustomStyle } from "../NativePinInput";
 
@@ -15,14 +15,14 @@ export class PinInputButton extends Component<PinInputButtonProps> {
         const isAndroid = Platform.OS === "android";
         if (isAndroid) {
             return (
-                <TouchableNativeFeedback style={this.props.style.pinInputTouchable} onPress={() => this.onClick()}>
-                    <Text style={this.props.style.caption}>{this.props.caption}</Text>
+                <TouchableNativeFeedback onPress={() => this.onClick()}>
+                    {this.renderView()}
                 </TouchableNativeFeedback>
             );
         } else {
             return (
-                <TouchableOpacity style={this.props.style.pinInputTouchable} onPress={() => this.onClick()}>
-                    <Text style={this.props.style.caption}>{this.props.caption}</Text>
+                <TouchableOpacity onPress={() => this.onClick()}>
+                    {this.renderView()}
                 </TouchableOpacity>
             );
         }
@@ -31,4 +31,12 @@ export class PinInputButton extends Component<PinInputButtonProps> {
     onClick() {
         this.props.onClick(this.props.caption);
     }
+
+    private renderView = () => {
+        return (
+            <View style={this.props.style.pinInputTouchable}>
+                <Text style={this.props.style.caption}>{this.props.caption}</Text>
+            </View>
+        );
+    };
 }

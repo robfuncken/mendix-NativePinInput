@@ -1,5 +1,5 @@
 import { Component, ReactNode, createElement } from "react";
-import { Platform, TouchableNativeFeedback, TouchableOpacity } from "react-native";
+import { Platform, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 import { DynamicValue, NativeIcon, ValueStatus } from "mendix";
 import { Icon } from "mendix/components/native/Icon";
 
@@ -19,13 +19,13 @@ export class DeleteButton extends Component<DeleteButtonProps> {
         const isAndroid = Platform.OS === "android";
         if (isAndroid) {
             return (
-                <TouchableNativeFeedback style={this.props.style.deleteButtonTouchable} onPress={() => this.onClick()}>
+                <TouchableNativeFeedback onPress={() => this.onClick()}>
                     {this.renderIcon(this.defaultIconGlyph, this.props.deleteButtonIcon)}
                 </TouchableNativeFeedback>
             );
         } else {
             return (
-                <TouchableOpacity style={this.props.style.deleteButtonTouchable} onPress={() => this.onClick()}>
+                <TouchableOpacity onPress={() => this.onClick()}>
                     {this.renderIcon(this.defaultIconGlyph, this.props.deleteButtonIcon)}
                 </TouchableOpacity>
             );
@@ -43,7 +43,9 @@ export class DeleteButton extends Component<DeleteButtonProps> {
                 : { type: "glyph", iconClass: glyph };
 
         return (
-            <Icon color={this.props.style.icon.color} icon={nativeIcon} size={this.props.style.icon.fontSize} />
+            <View style={this.props.style.deleteButtonTouchable}>
+                <Icon color={this.props.style.icon.color} icon={nativeIcon} size={this.props.style.icon.fontSize} />
+            </View>
         );
     };
 }
