@@ -53,7 +53,11 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         return (
             <View>
                 <View style={styles.valueRow}>
-                    <TextInput style={styles.readonlyText} value={this.state.textValue} secureTextEntry={true} />
+                    <TextInput
+                        editable={false}
+                        style={styles.readonlyText}
+                        value={this.state.textValue}
+                        secureTextEntry={true} />
                     {this.renderValidation()}
                 </View>
                 <View style={styles.buttonRow}>
