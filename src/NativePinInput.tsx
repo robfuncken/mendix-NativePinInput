@@ -35,7 +35,7 @@ const defaultStyle: CustomStyle = {
 };
 
 export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> {
-    private readonly styles = flattenStyles(defaultStyle, this.props.style);
+    private readonly mergedStyle = flattenStyles(defaultStyle, this.props.style);
 
     constructor(props: NativePinInputProps<CustomStyle>) {
         super(props);
@@ -49,38 +49,39 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     };
 
     render(): ReactNode {
-
+        console.info("Render, container:" + JSON.stringify(this.mergedStyle.container));
+        console.info("Render, this.props.style:" + JSON.stringify(this.props.style));
         return (
-            <View>
-                <View style={styles.valueRow}>
+            <View style={this.mergedStyle.container}>
+                <View style={this.mergedStyle.valueRow}>
                     <TextInput
                         editable={false}
-                        style={styles.readonlyText}
+                        style={this.mergedStyle.readonlyText}
                         value={this.state.textValue}
                         secureTextEntry={true} />
                     {this.renderValidation()}
                 </View>
-                <View style={styles.buttonRow}>
-                    <PinInputButton caption="1" style={this.styles} onClick={this.onClick}/>
-                    <PinInputButton caption="2" style={this.styles} onClick={this.onClick}/>
-                    <PinInputButton caption="3" style={this.styles} onClick={this.onClick}/>
+                <View style={this.mergedStyle.buttonRow}>
+                    <PinInputButton caption="1" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="2" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="3" style={this.mergedStyle} onClick={this.onClick}/>
                 </View>
-                <View style={styles.buttonRow}>
-                    <PinInputButton caption="4" style={this.styles} onClick={this.onClick}/>
-                    <PinInputButton caption="5" style={this.styles} onClick={this.onClick}/>
-                    <PinInputButton caption="6" style={this.styles} onClick={this.onClick}/>
+                <View style={this.mergedStyle.buttonRow}>
+                    <PinInputButton caption="4" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="5" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="6" style={this.mergedStyle} onClick={this.onClick}/>
                 </View>
-                <View style={styles.buttonRow}>
-                    <PinInputButton caption="7" style={this.styles} onClick={this.onClick}/>
-                    <PinInputButton caption="8" style={this.styles} onClick={this.onClick}/>
-                    <PinInputButton caption="9" style={this.styles} onClick={this.onClick}/>
+                <View style={this.mergedStyle.buttonRow}>
+                    <PinInputButton caption="7" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="8" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="9" style={this.mergedStyle} onClick={this.onClick}/>
                 </View>
-                <View style={styles.buttonRow}>
-                    <View style={this.styles.emptyContainer}></View>
-                    <PinInputButton caption="0" style={this.styles} onClick={this.onClick}/>
+                <View style={this.mergedStyle.buttonRow}>
+                    <View style={this.mergedStyle.emptyContainer}></View>
+                    <PinInputButton caption="0" style={this.mergedStyle} onClick={this.onClick}/>
                     <DeleteButton
                         deleteButtonIcon={this.props.deleteButtonIcon}
-                        style={this.styles}
+                        style={this.mergedStyle}
                         onClick={this.onDeleteClick}
                     />
                 </View>
@@ -97,7 +98,7 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
             validation = " ";
         }
         return (
-            <Text style={this.styles.validationMessage}>
+            <Text style={this.mergedStyle.validationMessage}>
             {validation}
         </Text>
         );
