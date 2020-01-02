@@ -49,8 +49,6 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     };
 
     render(): ReactNode {
-        console.info("Render, container:" + JSON.stringify(this.mergedStyle.container));
-        console.info("Render, this.props.style:" + JSON.stringify(this.props.style));
         return (
             <View style={this.mergedStyle.container}>
                 <View style={this.mergedStyle.valueRow}>
