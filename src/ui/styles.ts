@@ -17,8 +17,7 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 25,
         backgroundColor: "transparent",
-        color: darkMode ? "#FFFFFF" : "#000000",
-        height: 40
+        color: darkMode ? "#FFFFFF" : "#000000"
     },
     validationMessage: {
         textAlign: "center",
