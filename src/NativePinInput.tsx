@@ -45,7 +45,8 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     };
 
     state = {
-        textValue: ""
+        textValue: "",
+        displayValue: ""
     };
 
     render(): ReactNode {
@@ -55,7 +56,7 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
                     <TextInput
                         editable={false}
                         style={this.mergedStyle.readonlyText}
-                        value={this.state.textValue}
+                        value={this.state.displayValue}
                         secureTextEntry={true} />
                     {this.renderValidation()}
                 </View>
@@ -109,13 +110,14 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         if (!dataAttr || dataAttr.status !== ValueStatus.Available) {
             return;
         }
-        // The display value is not updated immediately, so keep track of the length here.
-        let displayValueLength = dataAttr.displayValue.length;
+        // Add input if not at maximum length yet
+        let displayValueLength = this.state.textValue.length;
         if (displayValueLength < this.props.maxLength) {
             // Add digit to value
-            dataAttr.setTextValue(dataAttr.displayValue + value);
+            dataAttr.setTextValue(this.state.textValue + value);
             this.setState({
-                textValue: this.state.textValue + '*',
+                displayValue: this.state.displayValue + '*',
+                textValue: this.state.textValue + value
             });
             displayValueLength++;
 
@@ -140,10 +142,12 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         if (!dataAttr || dataAttr.status !== ValueStatus.Available) {
             return;
         }
-        if (dataAttr.displayValue.length > 0) {
-            dataAttr.setTextValue(dataAttr.displayValue.substr(0, dataAttr.displayValue.length - 1));
+        if (this.state.textValue.length > 0) {
+            const newValue = this.state.textValue.substr(0, this.state.textValue.length - 1);
+            dataAttr.setTextValue(newValue);
             this.setState({
-                textValue: this.state.textValue.substr(0, this.state.textValue.length - 1)
+                textValue: newValue,
+                displayValue: this.state.displayValue.substr(0, this.state.displayValue.length - 1)
             });
             if (onChangeAction && onChangeAction.canExecute && !onChangeAction.isExecuting) {
                 onChangeAction.execute();

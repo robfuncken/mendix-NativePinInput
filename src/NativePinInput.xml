@@ -12,7 +12,7 @@
                 <caption>Attribute</caption>
                 <description>Data attribute</description>
                 <attributeTypes>
-                    <attributeType name="Integer"/>
+                    <attributeType name="String"/>
                 </attributeTypes>
             </property>
             <property key="maxLength" type="integer" defaultValue="4">
@@ -21,7 +21,7 @@
             </property>
             <systemProperty key="Visibility"/>
             <property key="deleteButtonIcon" type="icon">
-                <caption>Icon</caption>
+                <caption>Delete button icon</caption>
                 <description></description>
             </property>
         </propertyGroup>

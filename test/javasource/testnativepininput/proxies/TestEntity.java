@@ -147,7 +147,7 @@ public class TestEntity
 	/**
 	 * @return value of PinValue
 	 */
-	public final java.lang.Integer getPinValue()
+	public final java.lang.String getPinValue()
 	{
 		return getPinValue(getContext());
 	}
@@ -156,16 +156,16 @@ public class TestEntity
 	 * @param context
 	 * @return value of PinValue
 	 */
-	public final java.lang.Integer getPinValue(com.mendix.systemwideinterfaces.core.IContext context)
+	public final java.lang.String getPinValue(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.PinValue.toString());
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.PinValue.toString());
 	}
 
 	/**
 	 * Set value of PinValue
 	 * @param pinvalue
 	 */
-	public final void setPinValue(java.lang.Integer pinvalue)
+	public final void setPinValue(java.lang.String pinvalue)
 	{
 		setPinValue(getContext(), pinvalue);
 	}
@@ -175,7 +175,7 @@ public class TestEntity
 	 * @param context
 	 * @param pinvalue
 	 */
-	public final void setPinValue(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer pinvalue)
+	public final void setPinValue(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String pinvalue)
 	{
 		getMendixObject().setValue(context, MemberNames.PinValue.toString(), pinvalue);
 	}

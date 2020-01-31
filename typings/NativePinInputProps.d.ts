@@ -11,7 +11,7 @@ interface CommonProps<Style> {
 }
 
 export interface NativePinInputProps<Style> extends CommonProps<Style> {
-    dataAttr: EditableValue<BigJs.Big>;
+    dataAttr: EditableValue<string>;
     maxLength: number;
     deleteButtonIcon: DynamicValue<NativeIcon>;
     onChangeAction?: ActionValue;
