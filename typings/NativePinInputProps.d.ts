@@ -10,10 +10,13 @@ interface CommonProps<Style> {
     style: Style[];
 }
 
+export type DarkModeEnum = "device" | "dark" | "light";
+
 export interface NativePinInputProps<Style> extends CommonProps<Style> {
     dataAttr: EditableValue<string>;
     maxLength: number;
     deleteButtonIcon: DynamicValue<NativeIcon>;
+    darkMode: DarkModeEnum;
     onChangeAction?: ActionValue;
     onInputCompleteAction?: ActionValue;
 }

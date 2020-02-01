@@ -25,6 +25,17 @@
                 <description></description>
             </property>
         </propertyGroup>
+        <propertyGroup caption="Styling">
+            <property key="darkMode" type="enumeration" defaultValue="device">
+                <caption>Dark mode</caption>
+                <description>Choose whether the widget will follow the device dark mode setting or a fixed setting.</description>
+                <enumerationValues>
+                    <enumerationValue key="device">Device</enumerationValue>
+                    <enumerationValue key="dark">Dark</enumerationValue>
+                    <enumerationValue key="light">Light</enumerationValue>
+                </enumerationValues>
+            </property>
+        </propertyGroup>
         <propertyGroup caption="Events">
             <property key="onChangeAction" type="action" required="false">
                 <caption>On change action</caption>

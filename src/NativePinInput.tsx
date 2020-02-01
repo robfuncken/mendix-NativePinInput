@@ -34,7 +34,7 @@ const defaultStyle: CustomStyle = {
     validationMessage: commonStyles.validationMessage
 };
 
-const darkMode =
+const deviceDarkMode =
     NativeModules && NativeModules.RNDarkMode && NativeModules.RNDarkMode.initialMode
         ? NativeModules.RNDarkMode.initialMode === "dark"
         : false;
@@ -47,11 +47,22 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         super(props);
 
         const styleArray: CustomStyle[] = [...this.props.style];
-        if (darkMode) {
-            styleArray.push(darkStyles);
-        } else {
-            styleArray.push(lightStyles);
-        }
+        switch (this.props.darkMode) {
+            case "dark":
+                styleArray.unshift(darkStyles);
+                break;
+        
+            case "light":
+                styleArray.unshift(lightStyles);
+                break;
+        
+            default:
+                if (deviceDarkMode) {
+                    styleArray.unshift(darkStyles);
+                } else {
+                    styleArray.unshift(lightStyles);
+                }
+            }
         this.mergedStyle = flattenStyles(defaultStyle, styleArray);
 
         this.onClick = this.onClick.bind(this);
@@ -64,9 +75,6 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     };
 
     render(): ReactNode {
-        if (darkMode) {
-
-        }
         return (
             <View style={this.mergedStyle.container}>
                 <View style={this.mergedStyle.valueRow}>
