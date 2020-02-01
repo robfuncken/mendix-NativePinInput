@@ -1,11 +1,6 @@
-import { NativeModules, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 
-const darkMode =
-    NativeModules && NativeModules.RNDarkMode && NativeModules.RNDarkMode.initialMode
-        ? NativeModules.RNDarkMode.initialMode === "dark"
-        : false;
-
-export const styles = StyleSheet.create({
+export const commonStyles = StyleSheet.create({
     container: {
         borderWidth: 0
     },
@@ -16,8 +11,7 @@ export const styles = StyleSheet.create({
     readonlyText: {
         textAlign: "center",
         fontSize: 25,
-        backgroundColor: "transparent",
-        color: darkMode ? "#FFFFFF" : "#000000"
+        backgroundColor: "transparent"
     },
     validationMessage: {
         textAlign: "center",
@@ -34,7 +28,6 @@ export const styles = StyleSheet.create({
     pinInputTouchable: {
         width: 70,
         height: 70,
-        backgroundColor: darkMode ? "#1c1c1c" : "#f8f8f8",
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 35
@@ -52,12 +45,64 @@ export const styles = StyleSheet.create({
         backgroundColor: "transparent"
     },
     icon: {
-        fontSize: 25,
-        color: darkMode ? "#FFFFFF" : "#000000",
+        fontSize: 25
     },
     caption: {
         textAlign: "center",
-        fontSize: 25,
-        color: darkMode ? "#FFFFFF" : "#000000",
+        fontSize: 25
+    }
+});
+
+export const darkStyles = StyleSheet.create({
+    container: {
+    },
+    valueRow: {
+    },
+    readonlyText: {
+        color: "#FFFFFF"
+    },
+    validationMessage: {
+    },
+    buttonRow: {
+    },
+    pinInputTouchable: {
+        backgroundColor: "#1c1c1c"
+    },
+    deleteButtonTouchable: {
+    },
+    emptyContainer: {
+    },
+    icon: {
+        color: "#FFFFFF"
+    },
+    caption: {
+        color: "#FFFFFF"
+    }
+});
+
+export const lightStyles = StyleSheet.create({
+    container: {
+    },
+    valueRow: {
+    },
+    readonlyText: {
+        color: "#000000"
+    },
+    validationMessage: {
+    },
+    buttonRow: {
+    },
+    pinInputTouchable: {
+        backgroundColor: "#f8f8f8"
+    },
+    deleteButtonTouchable: {
+    },
+    emptyContainer: {
+    },
+    icon: {
+        color: "#000000"
+    },
+    caption: {
+        color: "#000000"
     }
 });

@@ -1,9 +1,9 @@
 import { Component, ReactNode, createElement } from "react";
-import { Text, TextStyle, ViewStyle, View, TextInput } from "react-native";
+import { NativeModules, Text, TextStyle, ViewStyle, View, TextInput } from "react-native";
 import { NativePinInputProps } from "../typings/NativePinInputProps";
 import { Style } from "./utils/common";
 import { flattenStyles } from "./utils/common";
-import { styles } from "./ui/styles";
+import { commonStyles, darkStyles, lightStyles } from "./ui/styles";
 import { PinInputButton } from "./components/PinInputButton";
 import { ValueStatus } from "mendix";
 import { DeleteButton } from "./components/DeleteButton";
@@ -22,23 +22,37 @@ export interface CustomStyle extends Style {
 }
 
 const defaultStyle: CustomStyle = {
-    container: styles.container,
-    readonlyText: styles.readonlyText,
-    buttonRow: styles.buttonRow,
-    valueRow: styles.valueRow,
-    pinInputTouchable: styles.pinInputTouchable,
-    deleteButtonTouchable: styles.deleteButtonTouchable,
-    icon: styles.icon,
-    emptyContainer: styles.emptyContainer,
-    caption: styles.caption,
-    validationMessage: styles.validationMessage
+    container: commonStyles.container,
+    readonlyText: commonStyles.readonlyText,
+    buttonRow: commonStyles.buttonRow,
+    valueRow: commonStyles.valueRow,
+    pinInputTouchable: commonStyles.pinInputTouchable,
+    deleteButtonTouchable: commonStyles.deleteButtonTouchable,
+    icon: commonStyles.icon,
+    emptyContainer: commonStyles.emptyContainer,
+    caption: commonStyles.caption,
+    validationMessage: commonStyles.validationMessage
 };
 
+const darkMode =
+    NativeModules && NativeModules.RNDarkMode && NativeModules.RNDarkMode.initialMode
+        ? NativeModules.RNDarkMode.initialMode === "dark"
+        : false;
+
+
 export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> {
-    private readonly mergedStyle = flattenStyles(defaultStyle, this.props.style);
+    private readonly mergedStyle: CustomStyle;
 
     constructor(props: NativePinInputProps<CustomStyle>) {
         super(props);
+
+        const styleArray: CustomStyle[] = [...this.props.style];
+        if (darkMode) {
+            styleArray.push(darkStyles);
+        } else {
+            styleArray.push(lightStyles);
+        }
+        this.mergedStyle = flattenStyles(defaultStyle, styleArray);
 
         this.onClick = this.onClick.bind(this);
         this.onDeleteClick = this.onDeleteClick.bind(this);
@@ -50,6 +64,9 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     };
 
     render(): ReactNode {
+        if (darkMode) {
+
+        }
         return (
             <View style={this.mergedStyle.container}>
                 <View style={this.mergedStyle.valueRow}>
