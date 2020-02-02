@@ -15,6 +15,6 @@ This widget uses buttons and shows the number of entered digits in a readonly te
 - Widget styling responds to dark mode setting
 
 ## Usage
-- Your entity needs to have an integer attribute for the PIN value.
+- Your entity needs to have a string attribute for the PIN value. Integer does not work because leading zero's would be lost.
 - Configure the number of digits for your situation.
 - Configure the action events where appropriate.
