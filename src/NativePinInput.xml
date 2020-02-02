@@ -35,6 +35,14 @@
                     <enumerationValue key="light">Light</enumerationValue>
                 </enumerationValues>
             </property>
+            <property key="buttonStyle" type="enumeration" defaultValue="circle">
+                <caption>Button style</caption>
+                <description>Choose the button style.</description>
+                <enumerationValues>
+                    <enumerationValue key="circle">Circle</enumerationValue>
+                    <enumerationValue key="numKeyboard">Num keyboard</enumerationValue>
+                </enumerationValues>
+            </property>
         </propertyGroup>
         <propertyGroup caption="Events">
             <property key="onChangeAction" type="action" required="false">

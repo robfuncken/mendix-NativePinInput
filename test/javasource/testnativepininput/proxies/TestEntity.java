@@ -20,7 +20,6 @@ public class TestEntity
 	 */
 	public enum MemberNames
 	{
-		Name("Name"),
 		PinValue("PinValue");
 
 		private java.lang.String metaName;
@@ -108,42 +107,6 @@ public class TestEntity
 	{
 		com.mendix.core.Core.delete(context, getMendixObject());
 	}
-	/**
-	 * @return value of Name
-	 */
-	public final java.lang.String getName()
-	{
-		return getName(getContext());
-	}
-
-	/**
-	 * @param context
-	 * @return value of Name
-	 */
-	public final java.lang.String getName(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		return (java.lang.String) getMendixObject().getValue(context, MemberNames.Name.toString());
-	}
-
-	/**
-	 * Set value of Name
-	 * @param name
-	 */
-	public final void setName(java.lang.String name)
-	{
-		setName(getContext(), name);
-	}
-
-	/**
-	 * Set value of Name
-	 * @param context
-	 * @param name
-	 */
-	public final void setName(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String name)
-	{
-		getMendixObject().setValue(context, MemberNames.Name.toString(), name);
-	}
-
 	/**
 	 * @return value of PinValue
 	 */

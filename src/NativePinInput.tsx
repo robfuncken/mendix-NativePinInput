@@ -3,7 +3,7 @@ import { NativeModules, Text, TextStyle, ViewStyle, View, TextInput } from "reac
 import { NativePinInputProps } from "../typings/NativePinInputProps";
 import { Style } from "./utils/common";
 import { flattenStyles } from "./utils/common";
-import { commonStyles, darkStyles, lightStyles } from "./ui/styles";
+import { commonStyles, circleStyles, numKeyboardStyles, darkStyles, lightStyles } from "./ui/styles";
 import { PinInputButton } from "./components/PinInputButton";
 import { ValueStatus } from "mendix";
 import { DeleteButton } from "./components/DeleteButton";
@@ -46,23 +46,30 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     constructor(props: NativePinInputProps<CustomStyle>) {
         super(props);
 
+        // Insert additional styles based on properties.
+        // These must be placed at the top of the array, using unshift, to allow overrule by project theme styles and design properties.
         const styleArray: CustomStyle[] = [...this.props.style];
         switch (this.props.darkMode) {
-            case "dark":
+        case "dark":
+            styleArray.unshift(darkStyles);
+            break;
+    
+        case "light":
+            styleArray.unshift(lightStyles);
+            break;
+    
+        default:
+            if (deviceDarkMode) {
                 styleArray.unshift(darkStyles);
-                break;
-        
-            case "light":
+            } else {
                 styleArray.unshift(lightStyles);
-                break;
-        
-            default:
-                if (deviceDarkMode) {
-                    styleArray.unshift(darkStyles);
-                } else {
-                    styleArray.unshift(lightStyles);
-                }
             }
+        }
+        if (this.props.buttonStyle === "circle") {
+            styleArray.unshift(circleStyles);
+        } else {
+            styleArray.unshift(numKeyboardStyles);
+        }
         this.mergedStyle = flattenStyles(defaultStyle, styleArray);
 
         this.onClick = this.onClick.bind(this);

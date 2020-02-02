@@ -20,28 +20,19 @@ export const commonStyles = StyleSheet.create({
     },
     buttonRow: {
         flexDirection: "row",
-        justifyContent: "space-between",
-        paddingHorizontal: 20,
-        paddingBottom: 20,
+        paddingHorizontal: 0,
+        justifyContent: "space-around",
         maxWidth: 360
     },
     pinInputTouchable: {
-        width: 70,
-        height: 70,
-        alignItems: "center",
         justifyContent: "center",
-        borderRadius: 35
     },
     deleteButtonTouchable: {
-        width: 70,
-        height: 70,
-        backgroundColor: "transparent",
+        justifyContent: "center",
         alignItems: "center",
-        justifyContent: "center"
+        backgroundColor: "transparent",
     },
     emptyContainer: {
-        width: 70,
-        height: 70,
         backgroundColor: "transparent"
     },
     icon: {
@@ -104,5 +95,68 @@ export const lightStyles = StyleSheet.create({
     },
     caption: {
         color: "#000000"
+    }
+});
+
+export const circleStyles = StyleSheet.create({
+    container: {
+    },
+    valueRow: {
+    },
+    readonlyText: {
+    },
+    validationMessage: {
+    },
+    buttonRow: {
+        paddingBottom: 20
+    },
+    pinInputTouchable: {
+        alignItems: "center",
+        height: 70,
+        width: 70,
+        borderRadius: 35
+    },
+    deleteButtonTouchable: {
+        height: 70,
+        width: 70,
+    },
+    emptyContainer: {
+        height: 70,
+        width: 70,
+    },
+    icon: {
+    },
+    caption: {
+    }
+});
+
+export const numKeyboardStyles = StyleSheet.create({
+    container: {
+    },
+    valueRow: {
+    },
+    readonlyText: {
+    },
+    validationMessage: {
+    },
+    buttonRow: {
+        paddingBottom: 10
+    },
+    pinInputTouchable: {
+        borderRadius: 5,
+        height: 50,
+        width: 85
+    },
+    deleteButtonTouchable: {
+        height: 50,
+        width: 85
+    },
+    emptyContainer: {
+        height: 50,
+        width: 85
+    },
+    icon: {
+    },
+    caption: {
     }
 });
