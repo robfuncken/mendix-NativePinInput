@@ -21,8 +21,7 @@ export const commonStyles = StyleSheet.create({
     buttonRow: {
         flexDirection: "row",
         paddingHorizontal: 0,
-        justifyContent: "space-around",
-        maxWidth: 360
+        justifyContent: "center"
     },
     pinInputTouchable: {
         justifyContent: "center",
@@ -108,21 +107,24 @@ export const circleStyles = StyleSheet.create({
     validationMessage: {
     },
     buttonRow: {
-        paddingBottom: 20
+        paddingBottom: 20,
+        paddingRight: 30
     },
     pinInputTouchable: {
+        marginLeft: 30,
         alignItems: "center",
         height: 70,
         width: 70,
         borderRadius: 35
     },
     deleteButtonTouchable: {
+        marginLeft: 30,
         height: 70,
         width: 70,
     },
     emptyContainer: {
         height: 70,
-        width: 70,
+        width: 100,
     },
     icon: {
     },
@@ -143,17 +145,19 @@ export const numKeyboardStyles = StyleSheet.create({
         paddingBottom: 10
     },
     pinInputTouchable: {
+        marginLeft: 10,
         borderRadius: 5,
         height: 50,
         width: 85
     },
     deleteButtonTouchable: {
+        marginLeft: 10,
         height: 50,
         width: 85
     },
     emptyContainer: {
         height: 50,
-        width: 85
+        width: 95
     },
     icon: {
     },
