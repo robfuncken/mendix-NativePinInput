@@ -12,7 +12,9 @@ This widget uses buttons and shows the number of entered digits in a readonly te
 - Supports validation feedback on the attribute
 - On change action
 - On input complete action
-- Widget styling responds to dark mode setting
+- Widget styling responds to dark mode setting of the device, can also be fixed on dark/normal mode
+- Two basic layouts: circle buttons and a more compact numeric keyboard layout
+- Styling can easily be overruled. 
 
 ## Usage
 - Your entity needs to have a string attribute for the PIN value. Integer does not work because leading zero's would be lost.
