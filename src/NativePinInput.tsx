@@ -85,10 +85,8 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         const { dataAttr } = this.props;
         const { dataAttr: nextDataAttr } = nextProps;
 
-        console.info("NativePinInput: componentWillReceiveProps");
         if (dataAttr && dataAttr.status === ValueStatus.Available && nextDataAttr && nextDataAttr.status === ValueStatus.Available) {
             if (dataAttr.value && !nextDataAttr.value) {
-                console.info("NativePinInput: reset input");
                 // Clear state if we receive empty value
                 this.setState({
                     displayValue: "",
@@ -100,7 +98,6 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
     }
 
     render(): ReactNode {
-        console.info("NativePinInput: render");
         return (
             <View style={this.mergedStyle.container}>
                 <View style={this.mergedStyle.valueRow}>
