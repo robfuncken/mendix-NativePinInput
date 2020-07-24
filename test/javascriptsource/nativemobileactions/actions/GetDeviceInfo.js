@@ -7,6 +7,7 @@
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
 import DeviceInfo from "react-native-device-info";
+import { getLocales, getCountry, getTimeZone, uses24HourClock } from "react-native-localize";
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -16,30 +17,41 @@ import DeviceInfo from "react-native-device-info";
  */
 export async function GetDeviceInfo() {
 	// BEGIN USER CODE
-    return Promise.all([createMxObject("NativeMobileActions.DeviceInfo"), DeviceInfo.getBatteryLevel()]).then(([mxObject, batteryLevel]) => {
+    return Promise.all([
+        createMxObject("NativeMobileActions.DeviceInfo"),
+        DeviceInfo.getBatteryLevel(),
+        DeviceInfo.getFontScale(),
+        DeviceInfo.getFreeDiskStorage(),
+        DeviceInfo.getTotalDiskCapacity(),
+        DeviceInfo.getTotalMemory(),
+        DeviceInfo.getCarrier(),
+        DeviceInfo.getManufacturer(),
+        DeviceInfo.getUserAgent()
+    ]).then(async ([mxObject, batteryLevel, fontScale, freeDiskStorage, totalDiskCapacity, totalMemory, carrier, manufacturer, userAgent]) => {
+        const locales = getLocales();
         mxObject.set("ApplicationName", DeviceInfo.getApplicationName());
         mxObject.set("BatteryLevel", new Big(batteryLevel.toFixed(2)));
         mxObject.set("Brand", DeviceInfo.getBrand());
         mxObject.set("BuildNumber", String(DeviceInfo.getBuildNumber()));
         mxObject.set("BundleId", DeviceInfo.getBundleId());
-        mxObject.set("Carrier", DeviceInfo.getCarrier());
-        mxObject.set("DeviceCountry", DeviceInfo.getDeviceCountry());
+        mxObject.set("Carrier", carrier);
+        mxObject.set("DeviceCountry", getCountry());
         mxObject.set("DeviceId", DeviceInfo.getDeviceId());
-        mxObject.set("DeviceLocale", DeviceInfo.getDeviceLocale());
-        mxObject.set("FontScale", new Big(DeviceInfo.getFontScale().toFixed(2)));
-        mxObject.set("FreeDiskStorage", new Big(DeviceInfo.getFreeDiskStorage()));
-        mxObject.set("Manufacturer", DeviceInfo.getManufacturer());
+        mxObject.set("DeviceLocale", locales && locales.length > 0 ? locales[0].languageTag : "");
+        mxObject.set("FontScale", new Big(fontScale.toFixed(2)));
+        mxObject.set("FreeDiskStorage", new Big(freeDiskStorage));
+        mxObject.set("Manufacturer", manufacturer);
         mxObject.set("Model", DeviceInfo.getModel());
         mxObject.set("ReadableVersion", DeviceInfo.getReadableVersion());
         mxObject.set("SystemName", DeviceInfo.getSystemName());
         mxObject.set("SystemVersion", DeviceInfo.getSystemVersion());
-        mxObject.set("Timezone", DeviceInfo.getTimezone());
-        mxObject.set("TotalDiskCapacity", new Big(DeviceInfo.getTotalDiskCapacity()));
-        mxObject.set("TotalMemory", new Big(DeviceInfo.getTotalMemory()));
-        mxObject.set("UniqueId", DeviceInfo.getUniqueID());
-        mxObject.set("UserAgent", DeviceInfo.getUserAgent());
+        mxObject.set("Timezone", getTimeZone());
+        mxObject.set("TotalDiskCapacity", new Big(totalDiskCapacity));
+        mxObject.set("TotalMemory", new Big(totalMemory));
+        mxObject.set("UniqueId", DeviceInfo.getUniqueId());
+        mxObject.set("UserAgent", userAgent);
         mxObject.set("Version", DeviceInfo.getVersion());
-        mxObject.set("Is24Hour", DeviceInfo.is24Hour());
+        mxObject.set("Is24Hour", uses24HourClock());
         mxObject.set("IsEmulator", DeviceInfo.isEmulator());
         mxObject.set("IsTablet", DeviceInfo.isTablet());
         mxObject.set("IsLandscape", DeviceInfo.isLandscape());
