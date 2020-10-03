@@ -7,6 +7,8 @@ import { commonStyles, circleStyles, numKeyboardStyles, darkStyles, lightStyles 
 import { PinInputButton } from "./components/PinInputButton";
 import { ValueStatus } from "mendix";
 import { DeleteButton } from "./components/DeleteButton";
+import { TouchIDButton } from "./components/TouchIDButton";
+import TouchID from "react-native-touch-id";
 
 export interface CustomStyle extends Style {
     container: ViewStyle;
@@ -73,12 +75,14 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         this.mergedStyle = flattenStyles(defaultStyle, styleArray);
 
         this.onClick = this.onClick.bind(this);
+        this.onClickTouchID = this.onClickTouchID.bind(this)
         this.onDeleteClick = this.onDeleteClick.bind(this);
     };
 
     state = {
         textValue: "",
-        displayValue: ""
+        displayValue: "",
+        auth: false
     };
 
     componentWillReceiveProps(nextProps: NativePinInputProps<CustomStyle>) {
@@ -96,8 +100,19 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         }
 
     }
+      
+
+    componentDidMount() {
+        TouchID.authenticate('to demo this react-native component')
+        .then(this.toggleText)
+    }
+
+    toggleText() {
+        this.setState({auth: true})
+    }
 
     render(): ReactNode {
+
         return (
             <View style={this.mergedStyle.container}>
                 <View style={this.mergedStyle.valueRow}>
@@ -124,7 +139,7 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
                     <PinInputButton caption="9" style={this.mergedStyle} onClick={this.onClick}/>
                 </View>
                 <View style={this.mergedStyle.buttonRow}>
-                    <View style={this.mergedStyle.emptyContainer}></View>
+                    <TouchIDButton onClickTouchID={this.onClickTouchID}> </TouchIDButton>
                     <PinInputButton caption="0" style={this.mergedStyle} onClick={this.onClick}/>
                     <DeleteButton
                         deleteButtonIcon={this.props.deleteButtonIcon}
@@ -132,6 +147,7 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
                         onClick={this.onDeleteClick}
                     />
                 </View>
+                <Text>  {this.state.auth ? "AUTHENTICATED " : "NOT AUTHENTICATED "}</Text>
             </View>
         );
 
@@ -150,6 +166,13 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         </Text>
         );
     }
+
+    onClickTouchID() {
+            TouchID.authenticate('to demo this react-native component')
+            .then(console.log("Gelukt!"))
+            
+   }
+
 
     onClick(value: string) {
 
