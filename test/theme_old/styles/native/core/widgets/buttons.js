@@ -25,19 +25,19 @@ export const ActionButton = {
         justifyContent: "center",
         borderRadius: button.borderRadius,
         paddingVertical: button.paddingVertical,
-        paddingHorizontal: button.paddingHorizontal,
+        paddingHorizontal: button.paddingHorizontal
     },
     icon: {
         // Size and color are allowed
         color: button.primary.color,
-        size: button.fontSizeIconSmall,
+        size: button.fontSizeIconSmall
     },
     caption: {
         // All TextStyle properties are allowed
         color: button.primary.color,
         fontSize: button.fontSize,
-        fontFamily: font.family,
-    },
+        fontFamily: font.family
+    }
 };
 
 // Default style for button inside a header
@@ -46,15 +46,15 @@ export const ActionButtonHeader = {
         borderColor: button.header.borderColor,
         backgroundColor: button.header.backgroundColor,
         paddingVertical: button.header.paddingVertical,
-        paddingHorizontal: button.header.paddingHorizontal,
+        paddingHorizontal: button.header.paddingHorizontal
     },
     icon: {
         color: button.header.color,
-        size: button.header.fontSizeIconSmall,
+        size: button.header.fontSizeIconSmall
     },
     caption: {
         color: button.header.color,
         fontSize: button.header.fontSize,
-        fontFamily: font.family,
-    },
+        fontFamily: font.family
+    }
 };

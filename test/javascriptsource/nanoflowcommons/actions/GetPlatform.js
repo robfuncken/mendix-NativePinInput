@@ -18,11 +18,9 @@ export async function GetPlatform() {
 	// BEGIN USER CODE
     if (window && window.cordova) {
         return Promise.resolve("Hybrid_mobile");
-    }
-    else if (navigator && navigator.product === "ReactNative") {
+    } else if (navigator && navigator.product === "ReactNative") {
         return Promise.resolve("Native_mobile");
-    }
-    else {
+    } else {
         return Promise.resolve("Web");
     }
 	// END USER CODE

@@ -30,8 +30,7 @@ export async function GetObjectByGuid(entity, objectGuid) {
             callback: object => {
                 if (object) {
                     resolve(object);
-                }
-                else {
+                } else {
                     reject(new Error("'Object guid' not found"));
                 }
             }

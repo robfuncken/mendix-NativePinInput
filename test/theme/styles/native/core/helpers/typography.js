@@ -16,117 +16,117 @@ import { brand, contrast, font } from "../variables";
 // Text Colors
 export const textPrimary = {
     text: {
-        color: brand.primary,
-    },
+        color: brand.primary
+    }
 };
 export const textSuccess = {
     text: {
-        color: brand.success,
-    },
+        color: brand.success
+    }
 };
 export const textWarning = {
     text: {
-        color: brand.warning,
-    },
+        color: brand.warning
+    }
 };
 export const textDanger = {
     text: {
-        color: brand.danger,
-    },
+        color: brand.danger
+    }
 };
 export const textWhite = {
     text: {
-        color: "#FFF",
-    },
+        color: "#FFF"
+    }
 };
 
 export const textContrastLowest = {
     text: {
-        color: contrast.lowest,
-    },
+        color: contrast.lowest
+    }
 };
 export const textContrastLower = {
     text: {
-        color: contrast.lower,
-    },
+        color: contrast.lower
+    }
 };
 export const textContrastLow = {
     text: {
-        color: contrast.low,
-    },
+        color: contrast.low
+    }
 };
 export const textContrastDefault = {
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 export const textContrastHigh = {
     text: {
-        color: contrast.high,
-    },
+        color: contrast.high
+    }
 };
 export const textContrastHigher = {
     text: {
-        color: contrast.higher,
-    },
+        color: contrast.higher
+    }
 };
 export const textContrastHighest = {
     text: {
-        color: contrast.highest,
-    },
+        color: contrast.highest
+    }
 };
 
 // Text Alignment
 export const textLeft = {
     text: {
-        textAlign: "left",
-    },
+        textAlign: "left"
+    }
 };
 export const textCenter = {
     text: {
-        textAlign: "center",
-    },
+        textAlign: "center"
+    }
 };
 export const textRight = {
     text: {
-        textAlign: "right",
-    },
+        textAlign: "right"
+    }
 };
 
 // Text Weights
 export const textLight = {
     text: {
-        fontWeight: font.weightLight,
-    },
+        fontWeight: font.weightLight
+    }
 };
 export const textNormal = {
     text: {
-        fontWeight: font.weightNormal,
-    },
+        fontWeight: font.weightNormal
+    }
 };
 export const textSemiBold = {
     text: {
-        fontWeight: font.weightSemiBold,
-    },
+        fontWeight: font.weightSemiBold
+    }
 };
 export const textBold = {
     text: {
-        fontWeight: font.weightBold,
-    },
+        fontWeight: font.weightBold
+    }
 };
 
 // Text Sizes
 export const textSmall = {
     text: {
         fontSize: font.sizeSmall,
-        lineHeight: font.sizeSmall,
-    },
+        lineHeight: font.sizeSmall
+    }
 };
 export const textLarge = {
     text: {
         fontSize: font.sizeLarge,
-        lineHeight: font.sizeLarge,
-    },
+        lineHeight: font.sizeLarge
+    }
 };
 
 //== Extra Classes
@@ -136,16 +136,16 @@ export const textLarge = {
 // Text Transformations
 export const textLowercase = {
     text: {
-        textTransform: "lowercase",
-    },
+        textTransform: "lowercase"
+    }
 };
 export const textUppercase = {
     text: {
-        textTransform: "uppercase",
-    },
+        textTransform: "uppercase"
+    }
 };
 export const textCapitalize = {
     text: {
-        textTransform: "capitalize",
-    },
+        textTransform: "capitalize"
+    }
 };

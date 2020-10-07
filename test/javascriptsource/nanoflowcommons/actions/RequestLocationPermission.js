@@ -21,16 +21,18 @@ export async function RequestLocationPermission() {
         const RN = require("react-native");
         if (RN.Platform.OS === "android") {
             const locationPermission = RN.PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
-            return RN.PermissionsAndroid.check(locationPermission).then(hasPermission => hasPermission
-                ? true
-                : RN.PermissionsAndroid.request(locationPermission).then(status => status === RN.PermissionsAndroid.RESULTS.GRANTED));
-        }
-        else if (navigator.geolocation && navigator.geolocation.requestAuthorization) {
+            return RN.PermissionsAndroid.check(locationPermission).then(hasPermission =>
+                hasPermission
+                    ? true
+                    : RN.PermissionsAndroid.request(locationPermission).then(
+                          status => status === RN.PermissionsAndroid.RESULTS.GRANTED
+                      )
+            );
+        } else if (navigator.geolocation && navigator.geolocation.requestAuthorization) {
             try {
                 navigator.geolocation.requestAuthorization();
                 return Promise.resolve(true);
-            }
-            catch (error) {
+            } catch (error) {
                 return Promise.reject(error);
             }
         }

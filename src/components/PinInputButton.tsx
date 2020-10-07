@@ -10,28 +10,21 @@ export interface PinInputButtonProps {
 }
 
 export class PinInputButton extends Component<PinInputButtonProps> {
-
     render(): ReactNode {
         const isAndroid = Platform.OS === "android";
         if (isAndroid) {
             return (
-                <TouchableNativeFeedback onPress={() => this.onClick()}>
-                    {this.renderView()}
-                </TouchableNativeFeedback>
+                <TouchableNativeFeedback onPress={() => this.onClick()}>{this.renderView()}</TouchableNativeFeedback>
             );
         } else {
-            return (
-                <TouchableOpacity onPress={() => this.onClick()}>
-                    {this.renderView()}
-                </TouchableOpacity>
-            );
+            return <TouchableOpacity onPress={() => this.onClick()}>{this.renderView()}</TouchableOpacity>;
         }
     }
 
     onClick() {
         this.props.onClick(this.props.caption);
     }
-
+   
     private renderView = () => {
         // Do not apply styling to touchable, but to the child view
         return (

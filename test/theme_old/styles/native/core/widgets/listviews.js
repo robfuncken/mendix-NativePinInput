@@ -17,5 +17,5 @@ export const ListView = {
     },
     listItem: {
         // All ViewStyle properties are allowed
-    },
+    }
 };

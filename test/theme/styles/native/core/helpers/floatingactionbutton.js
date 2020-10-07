@@ -16,18 +16,18 @@ import { brand } from "../variables";
 // Floating Action Button Colors
 export const floatingActionButtonSuccess = {
     button: {
-        backgroundColor: brand.success,
-    },
+        backgroundColor: brand.success
+    }
 };
 
 export const floatingActionButtonWarning = {
     button: {
-        backgroundColor: brand.warning,
-    },
+        backgroundColor: brand.warning
+    }
 };
 
 export const floatingActionButtonDanger = {
     button: {
-        backgroundColor: brand.danger,
-    },
+        backgroundColor: brand.danger
+    }
 };

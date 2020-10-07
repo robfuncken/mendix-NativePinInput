@@ -14,5 +14,5 @@
 export const com_mendix_widget_native_safeareaview_SafeAreaView = {
     container: {
         // All ViewStyle properties are allowed
-    },
+    }
 };

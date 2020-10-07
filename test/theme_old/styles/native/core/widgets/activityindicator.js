@@ -19,6 +19,6 @@ export const com_mendix_widget_native_activityindicator_ActivityIndicator = {
     },
     indicator: {
         // Just this property
-        color: brand.primary,
-    },
+        color: brand.primary
+    }
 };

@@ -20,34 +20,34 @@ export const Layout = {
     statusBar: {
         // Android only
         backgroundColor: navigation.statusBar.backgroundColor,
-        barStyle: navigation.statusBar.barStyle,
+        barStyle: navigation.statusBar.barStyle
     },
     header: {
         container: {
             // All ViewStyle properties are allowed
-            backgroundColor: navigation.topBar.backgroundColor,
+            backgroundColor: navigation.topBar.backgroundColor
         },
         title: {
             // All TextStyle properties are allowed
             color: navigation.topBar.titleColor,
             fontSize: navigation.topBar.titleFontSize,
             fontFamily: font.family,
-            fontWeight: font.weightBold,
+            fontWeight: font.weightBold
         },
         backButtonText: {
             // All TextStyle properties are allowed
             color: navigation.topBar.backButtonColor,
-            fontFamily: font.family,
+            fontFamily: font.family
         },
         backButtonIcon: {
             // All ImageStyle properties are allowed
-            tintColor: navigation.topBar.backButtonColor,
-        },
+            tintColor: navigation.topBar.backButtonColor
+        }
     },
     container: {
         // All ViewStyle properties are allowed
-        backgroundColor: background.primary,
-    },
+        backgroundColor: background.primary
+    }
 };
 
 export const Page = Layout;

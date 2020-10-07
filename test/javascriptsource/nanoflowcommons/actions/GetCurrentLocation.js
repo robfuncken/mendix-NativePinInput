@@ -36,7 +36,8 @@ export async function GetCurrentLocation(timeout, maximumAge, highAccuracy) {
                     const geolocation = mapPositionToMxObject(mxObject, position);
                     resolve(geolocation);
                 },
-                error: () => reject(new Error("Could not create 'NanoflowCommons.Geolocation' object to store location"))
+                error: () =>
+                    reject(new Error("Could not create 'NanoflowCommons.Geolocation' object to store location"))
             });
         }
         function onError(error) {

@@ -12,7 +12,6 @@ export interface DeleteButtonProps {
 }
 
 export class DeleteButton extends Component<DeleteButtonProps> {
-
     private defaultIconGlyph = "glyphicon-trash";
 
     render(): ReactNode {

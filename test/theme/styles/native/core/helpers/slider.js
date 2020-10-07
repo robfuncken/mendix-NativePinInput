@@ -1,4 +1,4 @@
-import { Platform }        from "react-native";
+import { Platform } from "react-native";
 import { brand, contrast } from "../variables";
 
 //
@@ -17,25 +17,25 @@ import { brand, contrast } from "../variables";
 // Slider Color
 export const sliderSuccess = {
     highlight: {
-        backgroundColor: brand.success,
+        backgroundColor: brand.success
     },
     highlightDisabled: {
-        backgroundColor: Platform.select({ ios: brand.success, android: contrast.low }),
-    },
+        backgroundColor: Platform.select({ ios: brand.success, android: contrast.low })
+    }
 };
 export const sliderWarning = {
     highlight: {
-        backgroundColor: brand.warning,
+        backgroundColor: brand.warning
     },
     highlightDisabled: {
-        backgroundColor: Platform.select({ ios: brand.warning, android: contrast.low }),
-    },
+        backgroundColor: Platform.select({ ios: brand.warning, android: contrast.low })
+    }
 };
 export const sliderDanger = {
     highlight: {
-        backgroundColor: brand.danger,
+        backgroundColor: brand.danger
     },
     highlightDisabled: {
-        backgroundColor: Platform.select({ ios: brand.danger, android: contrast.low }),
-    },
+        backgroundColor: Platform.select({ ios: brand.danger, android: contrast.low })
+    }
 };

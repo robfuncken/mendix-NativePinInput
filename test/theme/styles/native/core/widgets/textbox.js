@@ -24,7 +24,7 @@ export const TextBox = {
         fontSize: input.fontSize,
         fontFamily: font.family,
         textAlign: input.textAlign,
-        marginRight: spacing.small,
+        marginRight: spacing.small
     },
     input: {
         // placeholderTextColor, selectionColor, underlineColorAndroid and all TextStyle properties are allowed
@@ -40,25 +40,25 @@ export const TextBox = {
         borderRadius: input.borderRadius,
 
         paddingHorizontal: input.paddingHorizontal,
-        paddingVertical: input.paddingVertical,
+        paddingVertical: input.paddingVertical
     },
     inputDisabled: {
         // All TextStyle properties are allowed
-        backgroundColor: input.disabledBackgroundColor,
+        backgroundColor: input.disabledBackgroundColor
     },
     inputError: {
         // All TextStyle properties are allowed
         color: input.errorColor,
         borderColor: input.errorColor,
         placeholderTextColor: input.errorColor,
-        underlineColorAndroid: input.underlineColorAndroid,
+        underlineColorAndroid: input.underlineColorAndroid
     },
     validationMessage: {
         // All TextStyle properties are allowed
         color: input.errorColor,
         fontSize: font.size,
-        fontFamily: font.family,
-    },
+        fontFamily: font.family
+    }
 };
 
 export const TextBoxVertical = {
@@ -69,7 +69,7 @@ export const TextBoxVertical = {
         fontSize: input.fontSize,
         fontFamily: font.family,
         textAlign: input.textAlign,
-        marginBottom: spacing.smallest,
+        marginBottom: spacing.smallest
     },
     input: {
         color: input.color,
@@ -84,8 +84,8 @@ export const TextBoxVertical = {
         borderWidth: input.borderWidth,
 
         paddingHorizontal: input.paddingHorizontal,
-        paddingVertical: input.paddingVertical,
+        paddingVertical: input.paddingVertical
     },
     inputError: TextBox.inputError,
-    validationMessage: TextBox.validationMessage,
+    validationMessage: TextBox.validationMessage
 };

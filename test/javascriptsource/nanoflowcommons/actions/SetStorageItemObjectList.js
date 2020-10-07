@@ -28,8 +28,7 @@ export async function SetStorageItemObjectList(key, value) {
     return setItem(key, JSON.stringify(serializedObjects));
     function setItem(key, value) {
         if (navigator && navigator.product === "ReactNative") {
-            const AsyncStorage = require("@react-native-community/async-storage")
-                .default;
+            const AsyncStorage = require("@react-native-community/async-storage").default;
             return AsyncStorage.setItem(key, value);
         }
         if (window) {
@@ -39,10 +38,13 @@ export async function SetStorageItemObjectList(key, value) {
         return Promise.reject(new Error("No storage API available"));
     }
     function serializeMxObject(object) {
-        return object.getAttributes().reduce((accumulator, attributeName) => {
-            accumulator[attributeName] = object.get(attributeName);
-            return accumulator;
-        }, { guid: object.getGuid() });
+        return object.getAttributes().reduce(
+            (accumulator, attributeName) => {
+                accumulator[attributeName] = object.get(attributeName);
+                return accumulator;
+            },
+            { guid: object.getGuid() }
+        );
     }
 	// END USER CODE
 }

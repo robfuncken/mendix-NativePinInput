@@ -15,7 +15,7 @@ import { background, brand, contrast, font } from "../variables";
 
 export const com_mendix_widget_native_floatingactionbutton_FloatingActionButton = {
     container: {
-        margin: 30,
+        margin: 30
     },
     button: {
         size: 50,
@@ -26,13 +26,13 @@ export const com_mendix_widget_native_floatingactionbutton_FloatingActionButton 
         shadowRadius: 4,
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 2
         },
-        elevation: 2,
+        elevation: 2
     },
     buttonIcon: {
         size: font.sizeLarge,
-        color: contrast.lowest,
+        color: contrast.lowest
     },
     secondaryButton: {
         size: 30,
@@ -42,13 +42,13 @@ export const com_mendix_widget_native_floatingactionbutton_FloatingActionButton 
         shadowRadius: 4,
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 2
         },
-        elevation: 2,
+        elevation: 2
     },
     secondaryButtonIcon: {
         size: font.sizeSmall,
-        color: contrast.high,
+        color: contrast.high
     },
     secondaryButtonCaption: {},
     secondaryButtonCaptionContainer: {
@@ -59,8 +59,8 @@ export const com_mendix_widget_native_floatingactionbutton_FloatingActionButton 
         shadowRadius: 4,
         shadowOffset: {
             width: 0,
-            height: 2,
+            height: 2
         },
-        elevation: 2,
-    },
+        elevation: 2
+    }
 };

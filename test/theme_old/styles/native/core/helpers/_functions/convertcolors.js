@@ -31,7 +31,7 @@ function hexToRgb(hex) {
         r: parseInt("0x" + hex[0] + hex[1], 16),
         g: parseInt("0x" + hex[2] + hex[3], 16),
         b: parseInt("0x" + hex[4] + hex[5], 16),
-        a: parseInt("0x" + hex[6] + hex[7], 16) / 255 || 1,
+        a: parseInt("0x" + hex[6] + hex[7], 16) / 255 || 1
     });
 }
 
@@ -100,7 +100,7 @@ function hslToRgb(hsl) {
         r: Math.round((r + m) * 255),
         g: Math.round((g + m) * 255),
         b: Math.round((b + m) * 255),
-        a,
+        a
     });
 }
 
@@ -116,7 +116,7 @@ function rgbStringToRgb(rgb) {
     // if RGB has hex color definition
     if (~rgb.indexOf("#")) return hexToRgb(color);
     // if RGB has word color definition
-    else if (!(/\d/).test(rgb)) return colors[color.toLowerCase()];
+    else if (!/\d/.test(rgb)) return colors[color.toLowerCase()];
     // if RGB has RGB color definition
     else {
         const [r, g, b] = color.split(",");
@@ -145,7 +145,7 @@ function rgbaToRgb(rgba) {
         // if RGBA has HEX color definition
         if (color[0] === "#") RGB = hexToRgb(color);
         // if RGBA has word color definition
-        else if (!(/\d/).test(color)) RGB = colors[color.toLowerCase()];
+        else if (!/\d/.test(color)) RGB = colors[color.toLowerCase()];
         // if RGBA has RGB color definition
         else {
             const [r, g, b] = color.split(",");

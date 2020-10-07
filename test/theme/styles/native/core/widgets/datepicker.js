@@ -1,4 +1,4 @@
-import { font, input }              from "../variables";
+import { font, input } from "../variables";
 import { TextBox, TextBoxVertical } from "./textbox";
 
 //
@@ -17,22 +17,22 @@ import { TextBox, TextBoxVertical } from "./textbox";
 export const DatePicker = {
     container: {
         // All ViewStyle properties are allowed
-        ...TextBox.container,
+        ...TextBox.container
     },
     label: {
         // numberOfLines and all TextStyle properties are allowed
-        ...TextBox.label,
+        ...TextBox.label
     },
     pickerIOS: {
         // All ViewStyle properties are allowed
-        backgroundColor: input.backgroundColor,
+        backgroundColor: input.backgroundColor
     },
     pickerBackdropIOS: {
         // All ViewStyle properties are allowed
     },
     pickerTopIOS: {
         // All ViewStyle properties are allowed
-        backgroundColor: input.backgroundColor,
+        backgroundColor: input.backgroundColor
     },
     value: {
         // All TextStyle properties are allowed
@@ -46,23 +46,23 @@ export const DatePicker = {
         borderRadius: input.borderRadius,
 
         paddingHorizontal: input.paddingHorizontal,
-        paddingVertical: input.paddingVertical,
+        paddingVertical: input.paddingVertical
     },
     valueDisabled: {
         // All TextStyle properties are allowed
-        backgroundColor: input.disabledBackgroundColor,
+        backgroundColor: input.disabledBackgroundColor
     },
     placeholder: {
         // All TextStyle properties are allowed
-        color: input.placeholderTextColor,
+        color: input.placeholderTextColor
     },
     placeholderDisabled: {
         // All TextStyle properties are allowed
     },
     validationMessage: {
         // All TextStyle properties are allowed
-        ...TextBox.validationMessage,
-    },
+        ...TextBox.validationMessage
+    }
 };
 
 export const DatePickerVertical = {
@@ -79,10 +79,10 @@ export const DatePickerVertical = {
         borderWidth: input.borderWidth,
 
         paddingHorizontal: input.paddingHorizontal,
-        paddingVertical: input.paddingVertical,
+        paddingVertical: input.paddingVertical
     },
     placeholder: {
-        color: input.placeholderTextColor,
+        color: input.placeholderTextColor
     },
-    validationMessage: TextBoxVertical.validationMessage,
+    validationMessage: TextBoxVertical.validationMessage
 };

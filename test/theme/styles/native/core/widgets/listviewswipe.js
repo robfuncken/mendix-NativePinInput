@@ -1,6 +1,5 @@
 import { background } from "../variables.js";
 
-
 //
 // DISCLAIMER:
 // Do not change this file because it is core styling.
@@ -14,14 +13,13 @@ import { background } from "../variables.js";
     Default Class For Mendix List View Swipe Widget
 ========================================================================== */
 
-
 export const com_mendix_widget_native_listviewswipe_ListViewSwipe = {
     container: {
         // All ViewStyle properties are allowed
         flex: 1,
         alignItems: "stretch",
         justifyContent: "space-between",
-        backgroundColor: background.primary,
+        backgroundColor: background.primary
     },
     leftAction: {
         // PanelSize & All ViewStyle properties are allowed
@@ -29,7 +27,7 @@ export const com_mendix_widget_native_listviewswipe_ListViewSwipe = {
         flex: 1,
         flexDirection: "row",
         alignItems: "stretch",
-        backgroundColor: background.primary,
+        backgroundColor: background.primary
     },
     rightAction: {
         // PanelSize & All ViewStyle properties are allowed
@@ -37,6 +35,6 @@ export const com_mendix_widget_native_listviewswipe_ListViewSwipe = {
         flex: 1,
         flexDirection: "row",
         alignItems: "stretch",
-        backgroundColor: background.primary,
-    },
+        backgroundColor: background.primary
+    }
 };

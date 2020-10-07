@@ -36,8 +36,7 @@ export async function GetStorageItemObjectList(key, entity) {
     });
     function getItem(key) {
         if (navigator && navigator.product === "ReactNative") {
-            const AsyncStorage = require("@react-native-community/async-storage")
-                .default;
+            const AsyncStorage = require("@react-native-community/async-storage").default;
             return AsyncStorage.getItem(key);
         }
         if (window) {
@@ -48,8 +47,7 @@ export async function GetStorageItemObjectList(key, entity) {
     }
     function setItem(key, value) {
         if (navigator && navigator.product === "ReactNative") {
-            const AsyncStorage = require("@react-native-community/async-storage")
-                .default;
+            const AsyncStorage = require("@react-native-community/async-storage").default;
             return AsyncStorage.setItem(key, value);
         }
         if (window) {
@@ -62,8 +60,7 @@ export async function GetStorageItemObjectList(key, entity) {
         return getMxObject(value.guid).then(existingObject => {
             if (existingObject) {
                 return existingObject;
-            }
-            else {
+            } else {
                 return createMxObject(entity, value);
             }
         });
@@ -85,9 +82,9 @@ export async function GetStorageItemObjectList(key, entity) {
                     Object.keys(value)
                         .filter(attribute => attribute !== "guid")
                         .forEach(attributeName => {
-                        const attributeValue = value[attributeName];
-                        mxObject.set(attributeName, attributeValue);
-                    });
+                            const attributeValue = value[attributeName];
+                            mxObject.set(attributeName, attributeValue);
+                        });
                     resolve(mxObject);
                 },
                 error: () => reject(new Error(`Could not create '${entity}' object`))
@@ -95,10 +92,13 @@ export async function GetStorageItemObjectList(key, entity) {
         });
     }
     function serializeMxObject(object) {
-        return object.getAttributes().reduce((accumulator, attributeName) => {
-            accumulator[attributeName] = object.get(attributeName);
-            return accumulator;
-        }, { guid: object.getGuid() });
+        return object.getAttributes().reduce(
+            (accumulator, attributeName) => {
+                accumulator[attributeName] = object.get(attributeName);
+                return accumulator;
+            },
+            { guid: object.getGuid() }
+        );
     }
 	// END USER CODE
 }

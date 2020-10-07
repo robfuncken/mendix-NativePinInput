@@ -1,4 +1,4 @@
-import { Platform }                              from "react-native";
+import { Platform } from "react-native";
 import { background, border, contrast, spacing } from "../../../core/variables";
 
 /* ==========================================================================
@@ -15,8 +15,8 @@ export const card = {
         ...Platform.select({
             android: {
                 borderWidth: 1,
-                borderColor: contrast.lowest,
-            },
+                borderColor: contrast.lowest
+            }
         }),
         elevation: 1.5,
         shadowColor: contrast.lower,
@@ -24,9 +24,9 @@ export const card = {
         shadowRadius: 10,
         shadowOffset: {
             width: 0,
-            height: 2,
-        },
-    },
+            height: 2
+        }
+    }
 };
 
 //== Elements
@@ -36,25 +36,25 @@ export const cardImage = {
     container: {
         overflow: "hidden",
         borderTopLeftRadius: border.radius,
-        borderTopRightRadius: border.radius,
+        borderTopRightRadius: border.radius
     },
     image: {
         width: "100%",
         height: 200,
-        resizeMode: "cover",
-    },
+        resizeMode: "cover"
+    }
 };
 export const cardImageFull = {
     container: {
         ...cardImage.container,
         borderBottomLeftRadius: border.radius,
-        borderBottomRightRadius: border.radius,
+        borderBottomRightRadius: border.radius
     },
     image: {
         width: "100%",
         height: 300,
-        resizeMode: "cover",
-    },
+        resizeMode: "cover"
+    }
 };
 
 export const cardBody = {
@@ -63,8 +63,8 @@ export const cardBody = {
         end: 0,
         start: 0,
         bottom: 0,
-        backgroundColor: "transparent",
-    },
+        backgroundColor: "transparent"
+    }
 };
 
 //== Variations
@@ -78,15 +78,15 @@ export const cardAction = {
         borderWidth: 1,
         borderColor: border.color,
         borderRadius: border.radius,
-        padding: spacing.regular,
-    },
+        padding: spacing.regular
+    }
 };
 
 export const cardActionImage = {
     image: {
         maxHeight: 70,
-        resizeMode: "contain",
-    },
+        resizeMode: "contain"
+    }
 };
 
 //-------------------------------------------------------------------------------------------------------------------//
@@ -94,11 +94,11 @@ export const cardActionImage = {
 export const cardPaymentImage = {
     container: {
         flex: -1,
-        maxHeight: 250,
+        maxHeight: 250
     },
     image: {
         width: "100%",
         maxHeight: 250,
-        resizeMode: "contain",
-    },
+        resizeMode: "contain"
+    }
 };

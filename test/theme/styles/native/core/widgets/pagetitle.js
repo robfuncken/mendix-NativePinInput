@@ -1,4 +1,4 @@
-import { font }         from "../variables";
+import { font } from "../variables";
 import { TextHeading1 } from "./typography";
 
 //
@@ -21,6 +21,6 @@ export const PageTitle = {
     text: {
         // All TextStyle properties are allowed
         ...TextHeading1.text,
-        color: font.color,
-    },
+        color: font.color
+    }
 };

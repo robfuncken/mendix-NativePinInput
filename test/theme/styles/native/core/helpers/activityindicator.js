@@ -17,18 +17,18 @@ import { brand } from "../variables";
 
 export const activityIndicatorSuccess = {
     indicator: {
-        color: brand.success,
-    },
+        color: brand.success
+    }
 };
 
 export const activityIndicatorWarning = {
     indicator: {
-        color: brand.warning,
-    },
+        color: brand.warning
+    }
 };
 
 export const activityIndicatorDanger = {
     indicator: {
-        color: brand.danger,
-    },
+        color: brand.danger
+    }
 };

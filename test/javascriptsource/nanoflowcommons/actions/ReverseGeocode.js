@@ -55,9 +55,13 @@ export async function ReverseGeocode(latitude, longitude, geocodingProvider, pro
     providerApiKey = encodeURIComponent(providerApiKey);
     const url = getApiUrl(geocodingProvider, latitude, longitude, providerApiKey);
     return fetch(url)
-        .then(response => response.json().catch(() => response.text().then(text => {
-        return Promise.reject(new Error(text));
-    })))
+        .then(response =>
+            response.json().catch(() =>
+                response.text().then(text => {
+                    return Promise.reject(new Error(text));
+                })
+            )
+        )
         .then(response => getAddress(geocodingProvider, response))
         .catch(error => Promise.reject(error));
     function getApiUrl(provider, lat, long, key) {

@@ -1,8 +1,8 @@
-import { Dimensions, Platform }                        from "react-native";
-import * as custom                                     from "../app/custom-variables";
-import adjustFont                                      from "./helpers/_functions/adjustfont";
+import { Dimensions, Platform } from "react-native";
+import * as custom from "../app/custom-variables";
+import adjustFont from "./helpers/_functions/adjustfont";
 import { setColorBasedOnBackground, setContrastScale } from "./helpers/_functions/convertcolors";
-import merge                                           from "./helpers/_functions/mergeobjects";
+import merge from "./helpers/_functions/mergeobjects";
 
 //== Global variables
 //## Variables to be used during styling
@@ -15,7 +15,7 @@ let brand = {
     primary: "#0595DB",
     success: "#76CA02",
     warning: "#f99b1d",
-    danger: "#ed1c24",
+    danger: "#ed1c24"
 };
 brand = merge(brand, custom.brand || {});
 
@@ -26,7 +26,7 @@ let background = {
     brandPrimary: brand.primary,
     brandSuccess: brand.success,
     brandWarning: brand.warning,
-    brandDanger: brand.danger,
+    brandDanger: brand.danger
 };
 background = merge(background, custom.background || {});
 
@@ -38,7 +38,7 @@ let contrast = {
     regular: setContrastScale(0.5, background.primary),
     low: setContrastScale(0.35, background.primary),
     lower: setContrastScale(0.2, background.primary),
-    lowest: setContrastScale(0.05, background.primary),
+    lowest: setContrastScale(0.05, background.primary)
 };
 contrast = merge(contrast, custom.contrast || {});
 
@@ -46,7 +46,7 @@ contrast = merge(contrast, custom.contrast || {});
 let border = {
     color: setContrastScale(0.17, background.primary),
     width: 1,
-    radius: 5,
+    radius: 5
 };
 border = merge(border, custom.border || {});
 
@@ -66,7 +66,7 @@ let font = {
     weightNormal: "normal",
     weightSemiBold: "600",
     weightBold: "bold",
-    family: Platform.select({ ios: "System", android: "normal" }),
+    family: Platform.select({ ios: "System", android: "normal" })
 };
 font = merge(font, custom.font || {});
 
@@ -78,7 +78,7 @@ let spacing = {
     regular: 20,
     large: 25,
     larger: 30,
-    largest: 40,
+    largest: 40
 };
 spacing = merge(spacing, custom.spacing || {});
 
@@ -99,33 +99,33 @@ let button = {
         fontSize: font.size,
         fontSizeIcon: font.size,
         paddingVertical: 0,
-        paddingHorizontal: 0,
+        paddingHorizontal: 0
     },
     primary: {
         color: "#FFF",
         borderColor: brand.primary,
-        backgroundColor: brand.primary,
+        backgroundColor: brand.primary
     },
     secondary: {
         color: brand.primary,
         borderColor: brand.primary,
-        backgroundColor: "transparent",
+        backgroundColor: "transparent"
     },
     success: {
         color: "#FFF",
         borderColor: brand.success,
-        backgroundColor: brand.success,
+        backgroundColor: brand.success
     },
     warning: {
         color: "#FFF",
         borderColor: brand.warning,
-        backgroundColor: brand.warning,
+        backgroundColor: brand.warning
     },
     danger: {
         color: "#FFF",
         borderColor: brand.danger,
-        backgroundColor: brand.danger,
-    },
+        backgroundColor: brand.danger
+    }
 };
 button = merge(button, custom.button || {});
 
@@ -151,7 +151,7 @@ let input = {
     // Alignment
     textAlign: "left",
     paddingHorizontal: spacing.smaller,
-    paddingVertical: spacing.small,
+    paddingVertical: spacing.small
 };
 input = merge(input, custom.input || {});
 
@@ -159,13 +159,13 @@ input = merge(input, custom.input || {});
 let navigation = {
     statusBar: {
         backgroundColor: background.primary,
-        barStyle: custom.darkMode ? "light-content" : "dark-content",
+        barStyle: custom.darkMode ? "light-content" : "dark-content"
     },
     topBar: {
         backgroundColor: background.primary,
         backButtonColor: contrast.highest,
         titleColor: contrast.highest,
-        titleFontSize: Platform.select({ android: font.sizeH4, ios: font.sizeH5 }),
+        titleFontSize: Platform.select({ android: font.sizeH4, ios: font.sizeH5 })
     },
     bottomBar: {
         color: contrast.high,
@@ -173,14 +173,14 @@ let navigation = {
         selectedIconColor: brand.primary,
         backgroundColor: background.primary,
         fontSize: font.sizeSmall,
-        iconSize: font.sizeSmall,
+        iconSize: font.sizeSmall
     },
     progressOverlay: {
         color: "#FFF",
         activityIndicatorColor: "#FFF",
         backgroundColor: `rgba(0, 0, 0, 0.5)`,
-        fontSize: font.size,
-    },
+        fontSize: font.size
+    }
 };
 navigation = merge(navigation, custom.navigation || {});
 
@@ -188,8 +188,8 @@ navigation = merge(navigation, custom.navigation || {});
 let listview = {
     border: {
         color: border.color,
-        width: border.width,
-    },
+        width: border.width
+    }
 };
 listview = merge(listview, custom.listview || {});
 

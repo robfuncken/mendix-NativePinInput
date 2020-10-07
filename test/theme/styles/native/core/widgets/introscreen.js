@@ -1,7 +1,6 @@
-import { isIphoneWithNotch }                 from "../helpers/_functions/device.js";
-import { shadeBlendConvert }                 from "../helpers/_functions/shadeblendconvert.js";
+import { isIphoneWithNotch } from "../helpers/_functions/device.js";
+import { shadeBlendConvert } from "../helpers/_functions/shadeblendconvert.js";
 import { background, button, font, spacing } from "../variables.js";
-
 
 //
 // DISCLAIMER:
@@ -25,12 +24,12 @@ export const introScreenButtonPaginationAbove = {
         alignItems: "center",
         justifyContent: "center",
         paddingVertical: spacing.regular,
-        backgroundColor: button.primary.backgroundColor,
+        backgroundColor: button.primary.backgroundColor
     },
     icon: {
         // Size and color are allowed
         color: button.primary.color,
-        size: button.fontSizeIcon,
+        size: button.fontSizeIcon
     },
     caption: {
         // All TextStyle properties are allowed
@@ -39,8 +38,8 @@ export const introScreenButtonPaginationAbove = {
         fontFamily: font.family,
         fontWeight: font.weightBold,
         textTransform: "uppercase",
-        paddingHorizontal: spacing.smallest,
-    },
+        paddingHorizontal: spacing.smallest
+    }
 };
 // Button styles when the chose to show the indicator between the buttons
 export const introScreenButtonPaginationBetween = {
@@ -48,12 +47,12 @@ export const introScreenButtonPaginationBetween = {
         // Ripplecolor and all ViewStyle properties are allowed
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
     },
     icon: {
         // Size and color are allowed
         color: font.color,
-        size: button.fontSizeIcon,
+        size: button.fontSizeIcon
     },
     caption: {
         // All TextStyle properties are allowed
@@ -62,21 +61,21 @@ export const introScreenButtonPaginationBetween = {
         fontFamily: font.family,
         fontWeight: font.weightBold,
         textTransform: "uppercase",
-        paddingHorizontal: spacing.smallest,
-    },
+        paddingHorizontal: spacing.smallest
+    }
 };
 
 // Default styles
 export const com_mendix_widget_native_introscreen_IntroScreen = {
     fullscreenContainer: {
         // All ViewStyle properties are allowed
-        backgroundColor: background.primary,
+        backgroundColor: background.primary
     },
     popupContainer: {
         // All ViewStyle properties are allowed
         paddingVertical: 150,
         paddingHorizontal: 50,
-        backgroundColor: `rgba(0, 0, 0, 0.5)`,
+        backgroundColor: `rgba(0, 0, 0, 0.5)`
     },
 
     // Pagination styles
@@ -87,22 +86,22 @@ export const com_mendix_widget_native_introscreen_IntroScreen = {
         right: 0,
         bottom: isIphoneWithNotch ? 22 : 0,
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: "center"
     },
     paginationText: {
         // All TextStyle properties are allowed
         color: font.color,
         fontSize: font.size,
-        fontFamily: font.family,
+        fontFamily: font.family
     },
     dotStyle: {
         // All ViewStyle properties are allowed
         backgroundColor: shadeBlendConvert(0.5, background.brandPrimary),
-        transform: [{ scale: 0.5 }],
+        transform: [{ scale: 0.5 }]
     },
     activeDotStyle: {
         // All ViewStyle properties are allowed
-        backgroundColor: background.brandPrimary,
+        backgroundColor: background.brandPrimary
     },
 
     // Button styles
@@ -112,17 +111,17 @@ export const com_mendix_widget_native_introscreen_IntroScreen = {
             flex: 1,
             marginTop: 30,
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "center"
         },
         buttonSkip: introScreenButtonPaginationAbove,
         buttonPrevious: introScreenButtonPaginationAbove,
         buttonNext: introScreenButtonPaginationAbove,
-        buttonDone: introScreenButtonPaginationAbove,
+        buttonDone: introScreenButtonPaginationAbove
     },
     paginationBetween: {
         buttonSkip: introScreenButtonPaginationBetween,
         buttonPrevious: introScreenButtonPaginationBetween,
         buttonNext: introScreenButtonPaginationBetween,
-        buttonDone: introScreenButtonPaginationBetween,
-    },
+        buttonDone: introScreenButtonPaginationBetween
+    }
 };

@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import DeviceInfo   from "react-native-device-info";
+import DeviceInfo from "react-native-device-info";
 
 const isiPhoneModelWithNotch = () => {
     const model = DeviceInfo.getDeviceId();

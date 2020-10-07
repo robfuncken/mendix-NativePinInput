@@ -16,33 +16,33 @@ import { button } from "../variables";
 // Badge Colors
 export const badgePrimary = {
     container: {
-        backgroundColor: button.primary.backgroundColor,
+        backgroundColor: button.primary.backgroundColor
     },
     caption: {
-        color: button.primary.color,
-    },
+        color: button.primary.color
+    }
 };
 export const badgeSuccess = {
     container: {
-        backgroundColor: button.success.backgroundColor,
+        backgroundColor: button.success.backgroundColor
     },
     caption: {
-        color: button.success.color,
-    },
+        color: button.success.color
+    }
 };
 export const badgeWarning = {
     container: {
-        backgroundColor: button.warning.backgroundColor,
+        backgroundColor: button.warning.backgroundColor
     },
     caption: {
-        color: button.warning.color,
-    },
+        color: button.warning.color
+    }
 };
 export const badgeDanger = {
     container: {
-        backgroundColor: button.danger.backgroundColor,
+        backgroundColor: button.danger.backgroundColor
     },
     caption: {
-        color: button.danger.color,
-    },
+        color: button.danger.color
+    }
 };

@@ -31,21 +31,23 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         return Promise.reject(new Error(`Entity ${entity} does not inherit from 'System.FileDocument'`));
     }
     if (pictureQuality === "custom" && !maximumHeight && !maximumWidth) {
-        return Promise.reject(new Error("Picture quality is set to 'Custom', but no maximum width or height was provided"));
+        return Promise.reject(
+            new Error("Picture quality is set to 'Custom', but no maximum width or height was provided")
+        );
     }
     return takePicture()
         .then(uri => {
-        if (!uri) {
-            return false;
-        }
-        return storeFile(picture, uri);
-    })
+            if (!uri) {
+                return false;
+            }
+            return storeFile(picture, uri);
+        })
         .catch(error => {
-        if (error === "canceled") {
-            return false;
-        }
-        throw new Error(error);
-    });
+            if (error === "canceled") {
+                return false;
+            }
+            throw new Error(error);
+        });
     function takePicture() {
         return new Promise((resolve, reject) => {
             const options = getOptions();
@@ -70,13 +72,13 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
             fetch(uri)
                 .then(res => res.blob())
                 .then(blob => {
-                const guid = imageObject.getGuid();
-                // eslint-disable-next-line no-useless-escape
-                const filename = /[^\/]*$/.exec(uri)[0];
-                const onSuccess = () => resolve(true);
-                const onError = (error) => reject(error);
-                mx.data.saveDocument(guid, filename, {}, blob, onSuccess, onError);
-            });
+                    const guid = imageObject.getGuid();
+                    // eslint-disable-next-line no-useless-escape
+                    const filename = /[^\/]*$/.exec(uri)[0];
+                    const onSuccess = () => resolve(true);
+                    const onError = error => reject(error);
+                    mx.data.saveDocument(guid, filename, {}, blob, onSuccess, onError);
+                });
         });
     }
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -141,10 +143,16 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         };
         switch (error) {
             case ERRORS.iOSPhotoLibraryPermissionDenied:
-                showiOSPermissionAlert("This app does not have access to your photos or videos", "To enable access, tap Settings and turn on Photos.");
+                showiOSPermissionAlert(
+                    "This app does not have access to your photos or videos",
+                    "To enable access, tap Settings and turn on Photos."
+                );
                 return;
             case ERRORS.iOSCameraPermissionDenied:
-                showiOSPermissionAlert("This app does not have access to your camera", "To enable access, tap Settings and turn on Camera.");
+                showiOSPermissionAlert(
+                    "This app does not have access to your camera",
+                    "To enable access, tap Settings and turn on Camera."
+                );
                 return;
             case ERRORS.AndroidPermissionDenied:
                 // Ignore this error because the image picker plugin already shows an alert in this case.
@@ -154,10 +162,15 @@ export async function TakePicture(picture, pictureSource, pictureQuality, maximu
         }
     }
     function showiOSPermissionAlert(title, message) {
-        Alert.alert(title, message, [
-            { text: "Cancel", style: "cancel" },
-            { text: "Settings", onPress: () => Linking.openURL("app-settings:") }
-        ], { cancelable: false });
+        Alert.alert(
+            title,
+            message,
+            [
+                { text: "Cancel", style: "cancel" },
+                { text: "Settings", onPress: () => Linking.openURL("app-settings:") }
+            ],
+            { cancelable: false }
+        );
     }
 	// END USER CODE
 }

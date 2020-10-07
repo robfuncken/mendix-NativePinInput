@@ -1,11 +1,11 @@
 import { NativeModules, Platform } from "react-native";
-import adjustFont                  from "../core/helpers/_functions/adjustfont";
+import adjustFont from "../core/helpers/_functions/adjustfont";
 import {
     anyColorToRgbString,
     setColorBasedOnBackground,
-    setContrastScale,
-}                                  from "../core/helpers/_functions/convertcolors";
-import { shadeBlendConvert }       from "../core/helpers/_functions/shadeblendconvert.js";
+    setContrastScale
+} from "../core/helpers/_functions/convertcolors";
+import { shadeBlendConvert } from "../core/helpers/_functions/shadeblendconvert.js";
 
 /*
 ==> You can find a copy of the core variables below. (From styles/native/core/variables.js)
@@ -25,13 +25,14 @@ export const brand = {
     primaryLight: `rgba(${anyColorToRgbString("#0595DB")}, 0.14)`,
     successLight: `rgba(${anyColorToRgbString("#76CA02")}, 0.14)`,
     warningLight: `rgba(${anyColorToRgbString("#f99b1d")}, 0.14)`,
-    dangerLight: `rgba(${anyColorToRgbString("#ed1c24")}, 0.14)`,
+    dangerLight: `rgba(${anyColorToRgbString("#ed1c24")}, 0.14)`
 };
 
 // Dark Mode - Inherits OS theme if possible
-export const darkMode = NativeModules && NativeModules.RNDarkMode && NativeModules.RNDarkMode.initialMode
-                        ? NativeModules.RNDarkMode.initialMode === "dark"
-                        : false;
+export const darkMode =
+    NativeModules && NativeModules.RNDarkMode && NativeModules.RNDarkMode.initialMode
+        ? NativeModules.RNDarkMode.initialMode === "dark"
+        : false;
 
 // Background Colors
 const backgroundColor = darkMode ? "#000" : "#FFF";
@@ -39,7 +40,7 @@ const backgroundSecondaryContrast = darkMode ? 0.11 : 0.03;
 
 export const background = {
     primary: backgroundColor,
-    secondary: setContrastScale(backgroundSecondaryContrast, backgroundColor),
+    secondary: setContrastScale(backgroundSecondaryContrast, backgroundColor)
 };
 
 // Contrast (Gray) colors based on background.primary
@@ -50,14 +51,14 @@ export const contrast = {
     regular: setContrastScale(0.5, background.primary),
     low: setContrastScale(0.35, background.primary),
     lower: setContrastScale(0.2, background.primary),
-    lowest: setContrastScale(0.05, background.primary),
+    lowest: setContrastScale(0.05, background.primary)
 };
 
 // Border Style
 export const border = {
     color: setContrastScale(0.17, background.primary),
     width: 1,
-    radius: 5,
+    radius: 5
 };
 
 // Font Styles
@@ -72,11 +73,11 @@ export const font = {
     sizeH5: adjustFont(14),
     sizeH6: adjustFont(12),
     color: setColorBasedOnBackground(background.primary),
-    weightLight: "100",  // Only supported on iOS, will be 'Normal' on Android
+    weightLight: "100", // Only supported on iOS, will be 'Normal' on Android
     weightNormal: "normal",
     weightSemiBold: "600", // Only supported on iOS, will be 'Bold' on Android
     weightBold: "bold",
-    family: Platform.select({ ios: "System", android: "normal" }),
+    family: Platform.select({ ios: "System", android: "normal" })
 };
 
 // Spacing
@@ -87,7 +88,7 @@ export const spacing = {
     regular: 20,
     large: 25,
     larger: 30,
-    largest: 40,
+    largest: 40
 };
 
 // Button Styles
@@ -108,34 +109,34 @@ export const button = {
         fontSize: font.sizeSmall,
         fontSizeIcon: font.sizeSmall,
         paddingLeft: 0,
-        paddingRight: 10,
+        paddingRight: 10
     },
     primary: {
         color: "#FFF",
         borderColor: brand.primary,
-        backgroundColor: brand.primary,
+        backgroundColor: brand.primary
     },
     secondary: {
         color: brand.primary,
         borderColor: brand.primary,
         backgroundColor: "transparent",
-        inversedColor: "#FFF",
+        inversedColor: "#FFF"
     },
     success: {
         color: "#FFF",
         borderColor: brand.success,
-        backgroundColor: brand.success,
+        backgroundColor: brand.success
     },
     warning: {
         color: "#FFF",
         borderColor: brand.warning,
-        backgroundColor: brand.warning,
+        backgroundColor: brand.warning
     },
     danger: {
         color: "#FFF",
         borderColor: brand.danger,
-        backgroundColor: brand.danger,
-    },
+        backgroundColor: brand.danger
+    }
 };
 
 //Input Styles
@@ -160,20 +161,20 @@ export const input = {
     // Alignment
     textAlign: "left",
     paddingHorizontal: spacing.smaller,
-    paddingVertical: spacing.small,
+    paddingVertical: spacing.small
 };
 
 // Navigation Styles
 export const navigation = {
     statusBar: {
         backgroundColor: background.primary,
-        barStyle: darkMode ? "light-content" : "dark-content",
+        barStyle: darkMode ? "light-content" : "dark-content"
     },
     topBar: {
         backgroundColor: background.primary,
         backButtonColor: contrast.highest,
         titleColor: contrast.highest,
-        titleFontSize: Platform.select({ android: font.sizeH4, ios: font.sizeH5 }),
+        titleFontSize: Platform.select({ android: font.sizeH4, ios: font.sizeH5 })
     },
     bottomBar: {
         color: contrast.high,
@@ -181,7 +182,7 @@ export const navigation = {
         selectedIconColor: brand.primary,
         backgroundColor: background.primary,
         fontSize: font.sizeSmall,
-        iconSize: font.sizeSmall,
+        iconSize: font.sizeSmall
     },
     progressOverlay: {
         color: font.color,
@@ -189,39 +190,38 @@ export const navigation = {
         backgroundColor: `rgba(0, 0, 0, 0.5)`,
         containerBackgroundColor: background.secondary,
         shadowColor: shadeBlendConvert(-0.6, background.primary), // Only for iOS
-        fontSize: font.size,
-    },
+        fontSize: font.size
+    }
 };
 
 // Tabcontainer Styles
 export const tabcontainer = {
     tabBar: {
         pressColor: contrast.lower,
-        backgroundColor: background.primary,
+        backgroundColor: background.primary
     },
     indicator: {
         backgroundColor: brand.primary,
-        height: Platform.select({ ios: 2, android: 2 }),
+        height: Platform.select({ ios: 2, android: 2 })
     },
     label: {
         color: contrast.highest,
-        fontWeight: font.weightBold,
-    },
+        fontWeight: font.weightBold
+    }
 };
 
 // Listview Styles
 export const listview = {
     border: {
         color: border.color,
-        width: border.width,
-    },
+        width: border.width
+    }
 };
 
 // Layoutgrid Styles
 export const layoutgrid = {
-    gutterSize: 15,
+    gutterSize: 15
 };
-
 
 //## Pluggable Widgets
 //-------------------------------------------------------------------------------------------------------------------//
@@ -234,22 +234,22 @@ export const badge = {
 
     default: {
         color: contrast.higher,
-        backgroundColor: contrast.lower,
+        backgroundColor: contrast.lower
     },
     primary: {
         color: brand.primary,
-        backgroundColor: brand.primaryLight,
+        backgroundColor: brand.primaryLight
     },
     success: {
         color: brand.success,
-        backgroundColor: brand.successLight,
+        backgroundColor: brand.successLight
     },
     warning: {
         color: brand.warning,
-        backgroundColor: brand.warningLight,
+        backgroundColor: brand.warningLight
     },
     danger: {
         color: brand.danger,
-        backgroundColor: brand.dangerLight,
-    },
+        backgroundColor: brand.dangerLight
+    }
 };

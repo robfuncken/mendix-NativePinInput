@@ -1,5 +1,5 @@
 import { brand, button, contrast, font } from "../variables";
-import merge                             from "./_functions/mergeobjects";
+import merge from "./_functions/mergeobjects";
 
 //
 // DISCLAIMER:
@@ -18,50 +18,50 @@ import merge                             from "./_functions/mergeobjects";
 export const btnSecondary = {
     container: {
         borderColor: button.secondary.borderColor,
-        backgroundColor: button.secondary.backgroundColor,
+        backgroundColor: button.secondary.backgroundColor
     },
     icon: {
-        color: button.secondary.color,
+        color: button.secondary.color
     },
     caption: {
-        color: button.secondary.color,
-    },
+        color: button.secondary.color
+    }
 };
 export const btnSuccess = {
     container: {
         borderColor: button.success.borderColor,
-        backgroundColor: button.success.backgroundColor,
+        backgroundColor: button.success.backgroundColor
     },
     icon: {
-        color: button.success.color,
+        color: button.success.color
     },
     caption: {
-        color: button.success.color,
-    },
+        color: button.success.color
+    }
 };
 export const btnWarning = {
     container: {
         borderColor: button.warning.borderColor,
-        backgroundColor: button.warning.backgroundColor,
+        backgroundColor: button.warning.backgroundColor
     },
     icon: {
-        color: button.warning.color,
+        color: button.warning.color
     },
     caption: {
-        color: button.warning.color,
-    },
+        color: button.warning.color
+    }
 };
 export const btnDanger = {
     container: {
         borderColor: button.danger.borderColor,
-        backgroundColor: button.danger.backgroundColor,
+        backgroundColor: button.danger.backgroundColor
     },
     icon: {
-        color: button.danger.color,
+        color: button.danger.color
     },
     caption: {
-        color: button.danger.color,
-    },
+        color: button.danger.color
+    }
 };
 
 //== Extra Classes
@@ -74,39 +74,39 @@ export const btnIconPrimary = {
         borderWidth: 0,
         backgroundColor: "transparent",
         paddingVertical: 0,
-        paddingHorizontal: 0,
+        paddingHorizontal: 0
     },
     icon: {
-        color: button.primary.backgroundColor,
+        color: button.primary.backgroundColor
     },
     caption: {
-        fontSize: 0,
-    },
+        fontSize: 0
+    }
 };
 export const btnIconSecondary = merge(btnIconPrimary, {
     icon: {
-        color: contrast.lower,
-    },
+        color: contrast.lower
+    }
 });
 export const btnIconSuccess = merge(btnIconPrimary, {
     icon: {
-        color: button.success.backgroundColor,
-    },
+        color: button.success.backgroundColor
+    }
 });
 export const btnIconWarning = merge(btnIconPrimary, {
     icon: {
-        color: button.warning.backgroundColor,
-    },
+        color: button.warning.backgroundColor
+    }
 });
 export const btnIconDanger = merge(btnIconPrimary, {
     icon: {
-        color: button.danger.backgroundColor,
-    },
+        color: button.danger.backgroundColor
+    }
 });
 export const btnIconWhite = merge(btnIconPrimary, {
     icon: {
-        color: "#FFF",
-    },
+        color: "#FFF"
+    }
 });
 
 // Round Button Icon With Background
@@ -116,7 +116,7 @@ export const btnIconPrimaryBackground = {
         height: 40,
         borderRadius: 20,
         paddingVertical: 0,
-        paddingHorizontal: 0,
+        paddingHorizontal: 0
     },
     icon: {
         width: "100%",
@@ -124,10 +124,9 @@ export const btnIconPrimaryBackground = {
         alignItems: "center",
         justifyContent: "center",
         size: button.fontSizeIconLarge,
-        color: button.primary.color,
-    },
+        color: button.primary.color
+    }
 };
-
 
 // Text only
 export const btnAsText = {
@@ -138,16 +137,16 @@ export const btnAsText = {
         rippleColor: contrast.lowest,
         backgroundColor: "transparent",
         paddingVertical: 0,
-        paddingHorizontal: 0,
+        paddingHorizontal: 0
     },
     icon: {
         color: brand.primary,
         fontWeight: font.weightSemiBold,
-        size: button.fontSizeIconSmall,
+        size: button.fontSizeIconSmall
     },
     caption: {
         color: brand.primary,
         fontWeight: font.weightSemiBold,
-        fontSize: button.fontSize,
-    },
+        fontSize: button.fontSize
+    }
 };

@@ -12,45 +12,44 @@ import querystringify from "querystringify";
 // BEGIN EXTRA CODE
 
 function createParamObject(entity, url) {
-	const urlObject = new UrlParse(url);
-	const queryValues = {};
-	const query = querystringify.parse(urlObject.query);
-	for (const prop in query) {
-		if (Object.prototype.hasOwnProperty.call(query, prop)) {
-			queryValues[prop.toLowerCase()] = query[prop];
-		}
-	}
-	console.log("query", queryValues);
-	const paths = urlObject.pathname
-		.replace(/^\/*/, "")
-		.split("/")
-		.reduce((acc, currentValue, index) => {
-			acc["path" + index] = currentValue;
-			return acc;
-		}, {});
-	const hash = url.split('#')[1] || "";
-	const data = {
-		...urlObject,
-		hash,
-		...paths,
-		...queryValues
-	};
-	return new Promise((resolve, reject) => {
-		mx.data.create({
-			entity,
-			callback: mxObject => {
-				mxObject.getAttributes()
-					.forEach(attributeName => {
-						const value = data[attributeName.toLocaleLowerCase()];
-						if (value) {
-							mxObject.set(attributeName, value);
-						}
-					});
-				resolve(mxObject);
-			},
-			error: reject
-		});
-	});
+    const urlObject = new UrlParse(url);
+    const queryValues = {};
+    const query = querystringify.parse(urlObject.query);
+    for (const prop in query) {
+        if (Object.prototype.hasOwnProperty.call(query, prop)) {
+            queryValues[prop.toLowerCase()] = query[prop];
+        }
+    }
+    console.log("query", queryValues);
+    const paths = urlObject.pathname
+        .replace(/^\/*/, "")
+        .split("/")
+        .reduce((acc, currentValue, index) => {
+            acc["path" + index] = currentValue;
+            return acc;
+        }, {});
+    const hash = url.split("#")[1] || "";
+    const data = {
+        ...urlObject,
+        hash,
+        ...paths,
+        ...queryValues
+    };
+    return new Promise((resolve, reject) => {
+        mx.data.create({
+            entity,
+            callback: mxObject => {
+                mxObject.getAttributes().forEach(attributeName => {
+                    const value = data[attributeName.toLocaleLowerCase()];
+                    if (value) {
+                        mxObject.set(attributeName, value);
+                    }
+                });
+                resolve(mxObject);
+            },
+            error: reject
+        });
+    });
 }
 
 // END EXTRA CODE
@@ -86,6 +85,6 @@ function createParamObject(entity, url) {
  */
 export async function ParseUrlToObject(uRL, entity) {
 	// BEGIN USER CODE
-	return await createParamObject(entity, uRL);
+    return await createParamObject(entity, uRL);
 	// END USER CODE
 }

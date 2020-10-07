@@ -1,10 +1,10 @@
-import { Dimensions, Platform }                        from "react-native";
-import * as custom                                     from "../app/custom-variables";
-import adjustFont                                      from "./helpers/_functions/adjustfont";
+import { Dimensions, Platform } from "react-native";
+import * as custom from "../app/custom-variables";
+import adjustFont from "./helpers/_functions/adjustfont";
 import { setColorBasedOnBackground, setContrastScale } from "./helpers/_functions/convertcolors";
-import { anyColorToRgbString }                         from "./helpers/_functions/convertcolors.js";
-import merge                                           from "./helpers/_functions/mergeobjects";
-import { shadeBlendConvert }                           from "./helpers/_functions/shadeblendconvert.js";
+import { anyColorToRgbString } from "./helpers/_functions/convertcolors.js";
+import merge from "./helpers/_functions/mergeobjects";
+import { shadeBlendConvert } from "./helpers/_functions/shadeblendconvert.js";
 
 //== Global variables
 //## Variables to be used during styling
@@ -21,7 +21,7 @@ let brand = {
     primaryLight: `rgba(${anyColorToRgbString("#0595DB")}, 0.14)`,
     successLight: `rgba(${anyColorToRgbString("#76CA02")}, 0.14)`,
     warningLight: `rgba(${anyColorToRgbString("#f99b1d")}, 0.14)`,
-    dangerLight: `rgba(${anyColorToRgbString("#ed1c24")}, 0.14)`,
+    dangerLight: `rgba(${anyColorToRgbString("#ed1c24")}, 0.14)`
 };
 brand = merge(brand, custom.brand || {});
 
@@ -32,7 +32,7 @@ let background = {
     brandPrimary: brand.primary,
     brandSuccess: brand.success,
     brandWarning: brand.warning,
-    brandDanger: brand.danger,
+    brandDanger: brand.danger
 };
 background = merge(background, custom.background || {});
 
@@ -44,7 +44,7 @@ let contrast = {
     regular: setContrastScale(0.5, background.primary),
     low: setContrastScale(0.35, background.primary),
     lower: setContrastScale(0.2, background.primary),
-    lowest: setContrastScale(0.05, background.primary),
+    lowest: setContrastScale(0.05, background.primary)
 };
 contrast = merge(contrast, custom.contrast || {});
 
@@ -52,7 +52,7 @@ contrast = merge(contrast, custom.contrast || {});
 let border = {
     color: setContrastScale(0.17, background.primary),
     width: 1,
-    radius: 5,
+    radius: 5
 };
 border = merge(border, custom.border || {});
 
@@ -68,11 +68,11 @@ let font = {
     sizeH5: adjustFont(14),
     sizeH6: adjustFont(12),
     color: setColorBasedOnBackground(background.primary),
-    weightLight: "100",  // Only supported on iOS, will be 'Normal' on Android
+    weightLight: "100", // Only supported on iOS, will be 'Normal' on Android
     weightNormal: "normal",
     weightSemiBold: "600", // Only supported on iOS, will be 'Bold' on Android
     weightBold: "bold",
-    family: Platform.select({ ios: "System", android: "normal" }),
+    family: Platform.select({ ios: "System", android: "normal" })
 };
 font = merge(font, custom.font || {});
 
@@ -84,7 +84,7 @@ let spacing = {
     regular: 20,
     large: 25,
     larger: 30,
-    largest: 40,
+    largest: 40
 };
 spacing = merge(spacing, custom.spacing || {});
 
@@ -106,34 +106,34 @@ let button = {
         fontSize: font.sizeSmall,
         fontSizeIcon: font.sizeSmall,
         paddingLeft: 0,
-        paddingRight: 10,
+        paddingRight: 10
     },
     primary: {
         color: "#FFF",
         borderColor: brand.primary,
-        backgroundColor: brand.primary,
+        backgroundColor: brand.primary
     },
     secondary: {
         color: brand.primary,
         borderColor: brand.primary,
         backgroundColor: "transparent",
-        inversedColor: "#FFF",
+        inversedColor: "#FFF"
     },
     success: {
         color: "#FFF",
         borderColor: brand.success,
-        backgroundColor: brand.success,
+        backgroundColor: brand.success
     },
     warning: {
         color: "#FFF",
         borderColor: brand.warning,
-        backgroundColor: brand.warning,
+        backgroundColor: brand.warning
     },
     danger: {
         color: "#FFF",
         borderColor: brand.danger,
-        backgroundColor: brand.danger,
-    },
+        backgroundColor: brand.danger
+    }
 };
 button = merge(button, custom.button || {});
 
@@ -159,7 +159,7 @@ let input = {
     // Alignment
     textAlign: "left",
     paddingHorizontal: spacing.smaller,
-    paddingVertical: spacing.small,
+    paddingVertical: spacing.small
 };
 input = merge(input, custom.input || {});
 
@@ -167,13 +167,13 @@ input = merge(input, custom.input || {});
 let navigation = {
     statusBar: {
         backgroundColor: background.primary,
-        barStyle: custom.darkMode ? "light-content" : "dark-content",
+        barStyle: custom.darkMode ? "light-content" : "dark-content"
     },
     topBar: {
         backgroundColor: background.primary,
         backButtonColor: contrast.highest,
         titleColor: contrast.highest,
-        titleFontSize: Platform.select({ android: font.sizeH4, ios: font.sizeH5 }),
+        titleFontSize: Platform.select({ android: font.sizeH4, ios: font.sizeH5 })
     },
     bottomBar: {
         color: contrast.high,
@@ -181,7 +181,7 @@ let navigation = {
         selectedIconColor: brand.primary,
         backgroundColor: background.primary,
         fontSize: font.sizeSmall,
-        iconSize: font.sizeSmall,
+        iconSize: font.sizeSmall
     },
     progressOverlay: {
         color: font.color,
@@ -189,8 +189,8 @@ let navigation = {
         backgroundColor: `rgba(0, 0, 0, 0.5)`,
         containerBackgroundColor: background.secondary,
         shadowColor: shadeBlendConvert(-0.6, background.primary), // Only for iOS
-        fontSize: font.size,
-    },
+        fontSize: font.size
+    }
 };
 navigation = merge(navigation, custom.navigation || {});
 
@@ -198,16 +198,16 @@ navigation = merge(navigation, custom.navigation || {});
 let tabcontainer = {
     tabBar: {
         pressColor: contrast.lower,
-        backgroundColor: background.primary,
+        backgroundColor: background.primary
     },
     indicator: {
         backgroundColor: brand.primary,
-        height: Platform.select({ ios: 2, android: 2 }),
+        height: Platform.select({ ios: 2, android: 2 })
     },
     label: {
         color: contrast.highest,
-        fontWeight: font.weightBold,
-    },
+        fontWeight: font.weightBold
+    }
 };
 tabcontainer = merge(tabcontainer, custom.tabcontainer || {});
 
@@ -215,14 +215,14 @@ tabcontainer = merge(tabcontainer, custom.tabcontainer || {});
 let listview = {
     border: {
         color: border.color,
-        width: border.width,
-    },
+        width: border.width
+    }
 };
 listview = merge(listview, custom.listview || {});
 
 // Layoutgrid Styles
 let layoutgrid = {
-    gutterSize: 15,
+    gutterSize: 15
 };
 layoutgrid = merge(layoutgrid, custom.layoutgrid || {});
 
@@ -237,24 +237,24 @@ let badge = {
 
     default: {
         color: contrast.higher,
-        backgroundColor: contrast.lower,
+        backgroundColor: contrast.lower
     },
     primary: {
         color: brand.primary,
-        backgroundColor: brand.primaryLight,
+        backgroundColor: brand.primaryLight
     },
     success: {
         color: brand.success,
-        backgroundColor: brand.successLight,
+        backgroundColor: brand.successLight
     },
     warning: {
         color: brand.warning,
-        backgroundColor: brand.warningLight,
+        backgroundColor: brand.warningLight
     },
     danger: {
         color: brand.danger,
-        backgroundColor: brand.dangerLight,
-    },
+        backgroundColor: brand.dangerLight
+    }
 };
 badge = merge(badge, custom.badge || {});
 
@@ -271,5 +271,5 @@ export {
     tabcontainer,
     listview,
     layoutgrid,
-    badge,
+    badge
 };

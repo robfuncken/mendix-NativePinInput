@@ -16,49 +16,49 @@ import { brand, contrast, font } from "../variables";
 // Progress Circle Color
 export const progressCircleSuccess = {
     fill: {
-        backgroundColor: brand.success,
+        backgroundColor: brand.success
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 
 export const progressCircleWarning = {
     fill: {
-        backgroundColor: brand.warning,
+        backgroundColor: brand.warning
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 
 export const progressCircleDanger = {
     fill: {
-        backgroundColor: brand.danger,
+        backgroundColor: brand.danger
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 
 export const progressCircleGray = {
     fill: {
-        backgroundColor: contrast.regular,
+        backgroundColor: contrast.regular
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 
 // Sizes
 export const progressCircleSmall = {
     circle: {
-        size: 50,
+        size: 50
     },
     fill: {
-        width: 3,
+        width: 3
     },
     text: {
-        fontSize: font.sizeSmall,
-    },
+        fontSize: font.sizeSmall
+    }
 };

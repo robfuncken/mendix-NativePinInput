@@ -26,7 +26,8 @@ export async function Share(url, text, title) {
     // Documentation https://facebook.github.io/react-native/docs/share
     if (navigator && navigator.product === "ReactNative") {
         const RNShare = require("react-native").Share;
-        const content = url && text ? { message: text + "\n" + url, title } : url ? { url, title } : { message: text, title };
+        const content =
+            url && text ? { message: text + "\n" + url, title } : url ? { url, title } : { message: text, title };
         return RNShare.share(content).then(result => {
             if (result.action === RNShare.dismissedAction) {
                 return false;
@@ -43,11 +44,15 @@ export async function Share(url, text, title) {
     // Documentation https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin
     if (window && window.plugins && window.plugins.socialsharing) {
         return new Promise((resolve, reject) => {
-            window.plugins.socialsharing.shareWithOptions({
-                message: text,
-                subject: title,
-                url
-            }, result => resolve(result.completed), errorMessage => reject(new Error(errorMessage)));
+            window.plugins.socialsharing.shareWithOptions(
+                {
+                    message: text,
+                    subject: title,
+                    url
+                },
+                result => resolve(result.completed),
+                errorMessage => reject(new Error(errorMessage))
+            );
         });
     }
     if (document && document.location && document.location.protocol === "http:") {

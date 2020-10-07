@@ -1,4 +1,4 @@
-import { Platform }                          from "react-native";
+import { Platform } from "react-native";
 import { background, brand, contrast, font } from "../variables";
 
 //
@@ -17,7 +17,7 @@ import { background, brand, contrast, font } from "../variables";
 export const TabContainer = {
     container: {
         // All ViewStyle properties are allowed
-        flex: 1,
+        flex: 1
     },
     tabBar: {
         // bounces, pressColor, pressOpacity, scrollEnabled and all ViewStyle properties are allowed
@@ -25,12 +25,12 @@ export const TabContainer = {
         pressColor: contrast.lower,
         pressOpacity: 0.8,
         backgroundColor: background.primary,
-        scrollEnabled: false,
+        scrollEnabled: false
     },
     indicator: {
         // All ViewStyle properties are allowed
         backgroundColor: brand.primary,
-        height: Platform.select({ ios: 2, android: 2 }),
+        height: Platform.select({ ios: 2, android: 2 })
     },
     tab: {
         // All ViewStyle properties are allowed
@@ -38,6 +38,6 @@ export const TabContainer = {
     label: {
         // All TextStyle properties are allowed
         color: contrast.highest,
-        fontFamily: font.family,
-    },
+        fontFamily: font.family
+    }
 };

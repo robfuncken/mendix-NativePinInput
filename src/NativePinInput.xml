@@ -24,6 +24,10 @@
                 <caption>Delete button icon</caption>
                 <description></description>
             </property>
+            <property key="touchIDButtonIcon" type="icon">
+                <caption>TouchID button icon</caption>
+                <description></description>
+            </property>
         </propertyGroup>
         <propertyGroup caption="Styling">
             <property key="darkMode" type="enumeration" defaultValue="device">
@@ -52,6 +56,10 @@
             <property key="onInputCompleteAction" type="action" required="false">
                 <caption>Input complete action</caption>
                 <description>Action to trigger when user has entered the required number of digits</description>
+            </property>
+             <property key="onTouchIdAction" type="action" required="false">
+                <caption>On TouchID click</caption>
+                <description>Action to trigger when user clicked TouchID button</description>
             </property>
         </propertyGroup>
     </properties>

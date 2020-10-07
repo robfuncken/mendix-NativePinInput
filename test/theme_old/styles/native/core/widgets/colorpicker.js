@@ -15,9 +15,9 @@ export const com_mendix_widget_native_colorpicker_ColorPicker = {
     container: {
         // All ViewStyle properties are allowed
         height: 150,
-        width: 150,
+        width: 150
     },
     thumbnail: {
         // All ViewStyle properties are allowed
-    },
+    }
 };

@@ -1,29 +1,26 @@
 import { background, border, contrast, spacing } from "../../../core/variables.js";
 
-
 /* ==========================================================================
     Maps
 
 ========================================================================== */
 
-
 //== Elements
 //-------------------------------------------------------------------------------------------------------------------//
-
 
 export const mapContainerBottom = {
     container: {
         flexDirection: "row",
         alignItems: "center",
         bottom: 0,
-        position: "absolute",
-    },
+        position: "absolute"
+    }
 };
 
 export const mapList = {
     container: {
-        paddingHorizontal: spacing.regular,
-    },
+        paddingHorizontal: spacing.regular
+    }
 };
 
 export const mapListItemImage = {
@@ -39,14 +36,13 @@ export const mapListItemImage = {
         shadowRadius: 8,
         shadowOffset: {
             width: 0,
-            height: 2,
-        },
+            height: 2
+        }
     },
     image: {
-        borderRadius: border.radius,
-    },
+        borderRadius: border.radius
+    }
 };
-
 
 //== Variations
 //-------------------------------------------------------------------------------------------------------------------//

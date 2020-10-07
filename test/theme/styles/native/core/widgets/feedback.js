@@ -1,5 +1,5 @@
-import { Platform }                                                 from "react-native";
-import { shadeBlendConvert }                                        from "../helpers/_functions/shadeblendconvert.js";
+import { Platform } from "react-native";
+import { shadeBlendConvert } from "../helpers/_functions/shadeblendconvert.js";
 import { background, border, brand, button, contrast, font, input } from "../variables";
 
 //
@@ -28,17 +28,17 @@ export const com_mendix_widget_native_feedback_Feedback = {
         shadowRadius: 10,
         shadowOffset: {
             width: 0,
-            height: 2,
-        },
+            height: 2
+        }
     },
     dialog: {
         // All ViewStyle properties are allowed
-        backgroundColor: background.primary,
+        backgroundColor: background.primary
     },
     title: {
         // All TextStyle properties are allowed
         color: font.color,
-        fontFamily: font.family,
+        fontFamily: font.family
     },
     textAreaInput: {
         // All TextStyle properties are allowed
@@ -59,13 +59,13 @@ export const com_mendix_widget_native_feedback_Feedback = {
 
         textAlignVertical: "top",
         paddingVertical: input.paddingVertical,
-        paddingHorizontal: input.paddingHorizontal,
+        paddingHorizontal: input.paddingHorizontal
     },
     switchLabel: {
         // All TextStyle properties are allowed
         color: input.color,
         fontSize: input.fontSize,
-        fontFamily: input.fontFamily,
+        fontFamily: input.fontFamily
     },
     switchInput: {
         // All TextStyle properties are allowed
@@ -75,15 +75,15 @@ export const com_mendix_widget_native_feedback_Feedback = {
         thumbColorOn: background.primary,
         trackColorOn: brand.success,
         thumbColorOff: background.lowest,
-        trackColorOff: contrast.lowest,
+        trackColorOff: contrast.lowest
     },
     button: {
         // Just these 3 properties are allowed
         color: brand.primary,
         borderColor: border.color, // Required for IOS
-        borderWidth: border.width, // Required for IOS
+        borderWidth: border.width // Required for IOS
     },
     activityIndicator: {
-        color: font.color,
-    },
+        color: font.color
+    }
 };

@@ -47,9 +47,13 @@ export async function Geocode(address, geocodingProvider, providerApiKey) {
     }
     const url = getApiUrl(geocodingProvider, address, providerApiKey);
     return fetch(url)
-        .then(response => response.json().catch(() => response.text().then(text => {
-        return Promise.reject(new Error(text));
-    })))
+        .then(response =>
+            response.json().catch(() =>
+                response.text().then(text => {
+                    return Promise.reject(new Error(text));
+                })
+            )
+        )
         .then(response => getLatLong(geocodingProvider, response))
         .then(latLong => createMxObject(latLong[0], latLong[1]))
         .catch(error => Promise.reject(error));

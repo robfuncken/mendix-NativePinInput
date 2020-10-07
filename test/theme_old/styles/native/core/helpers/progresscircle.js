@@ -16,27 +16,27 @@ import { brand, contrast } from "../variables";
 // Progress Circle Color
 export const progressCircleSuccess = {
     fill: {
-        backgroundColor: brand.success,
+        backgroundColor: brand.success
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 
 export const progressCircleWarning = {
     fill: {
-        backgroundColor: brand.warning,
+        backgroundColor: brand.warning
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };
 
 export const progressCircleDanger = {
     fill: {
-        backgroundColor: brand.danger,
+        backgroundColor: brand.danger
     },
     text: {
-        color: contrast.regular,
-    },
+        color: contrast.regular
+    }
 };

@@ -1,4 +1,4 @@
-import { Platform }                              from "react-native";
+import { Platform } from "react-native";
 import { background, border, contrast, spacing } from "../../../core/variables";
 
 /* ==========================================================================
@@ -15,10 +15,10 @@ export const header = {
         ...Platform.select({
             android: {
                 borderWidth: 1,
-                borderColor: contrast.lowest,
-            },
-        }),
-    },
+                borderColor: contrast.lowest
+            }
+        })
+    }
 };
 
 //== Elements
@@ -26,13 +26,13 @@ export const header = {
 
 export const headerImageFull = {
     container: {
-        overflow: "hidden",
+        overflow: "hidden"
     },
     image: {
         width: "100%",
         height: 250,
-        resizeMode: "cover",
-    },
+        resizeMode: "cover"
+    }
 };
 
 export const headerImageOverlay = {
@@ -41,8 +41,8 @@ export const headerImageOverlay = {
         width: "100%",
         height: "100%",
         position: "absolute",
-        backgroundColor: "rgba(0,0,0,0.4)",
-    },
+        backgroundColor: "rgba(0,0,0,0.4)"
+    }
 };
 
 export const headerBody = {
@@ -51,10 +51,9 @@ export const headerBody = {
         zIndex: 11,
         width: "100%",
         position: "absolute",
-        backgroundColor: "transparent",
-    },
+        backgroundColor: "transparent"
+    }
 };
 
 //== Variations
 //-------------------------------------------------------------------------------------------------------------------//
-

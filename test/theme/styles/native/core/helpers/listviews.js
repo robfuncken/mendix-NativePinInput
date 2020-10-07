@@ -17,14 +17,14 @@ import { listview } from "../variables";
 export const listItemBorderBottom = {
     listItem: {
         borderColor: listview.border.color,
-        borderBottomWidth: listview.border.width,
-    },
+        borderBottomWidth: listview.border.width
+    }
 };
 export const listItemBorderRight = {
     listItem: {
         borderColor: listview.border.color,
-        borderRightWidth: listview.border.width,
-    },
+        borderRightWidth: listview.border.width
+    }
 };
 
 //== Extra Classes
@@ -33,11 +33,11 @@ export const listItemBorderRight = {
 
 export const listItemIconSmall = {
     icon: {
-        size: 16,
-    },
+        size: 16
+    }
 };
 export const listItemIconLarge = {
     icon: {
-        size: 24,
-    },
+        size: 24
+    }
 };

@@ -14,11 +14,11 @@
 export const Container = {
     container: {
         // All ViewStyle properties are allowed
-    },
+    }
 };
 
 export const ScrollContainer = {
     container: {
         // All ViewStyle properties are allowed
-    },
+    }
 };

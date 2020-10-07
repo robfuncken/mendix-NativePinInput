@@ -20,5 +20,5 @@ export const com_mendix_widget_native_videoplayer_VideoPlayer = {
     },
     video: {
         // All ViewStyle properties are allowed
-    },
+    }
 };

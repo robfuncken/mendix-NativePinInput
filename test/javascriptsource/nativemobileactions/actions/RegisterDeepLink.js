@@ -22,26 +22,26 @@ import { Linking, Platform } from "react-native";
  */
 export async function RegisterDeepLink(urlHandler) {
 	// BEGIN USER CODE
-	if (Platform.OS === 'android') {
-	Linking.getInitialURL()
-        .then(url => {
-			if (url) {
-				try {
-					urlHandler({ URL: url });
-				} catch (error) {
-					console.error("Failed deeplink call", url, error)
-				}
-			}
-        })
-        .catch((e) => {})
-	}
-	Linking.addEventListener("url", async (openObject) => {
-		const url = openObject.url;
-		try {
-			await urlHandler({ URL: url });
-		} catch (error) {
-			console.error("Failed deeplink call", url, error)
-		}
-	});
+    if (Platform.OS === "android") {
+        Linking.getInitialURL()
+            .then(url => {
+                if (url) {
+                    try {
+                        urlHandler({ URL: url });
+                    } catch (error) {
+                        console.error("Failed deeplink call", url, error);
+                    }
+                }
+            })
+            .catch(e => {});
+    }
+    Linking.addEventListener("url", async openObject => {
+        const url = openObject.url;
+        try {
+            await urlHandler({ URL: url });
+        } catch (error) {
+            console.error("Failed deeplink call", url, error);
+        }
+    });
 	// END USER CODE
 }

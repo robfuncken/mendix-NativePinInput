@@ -22,8 +22,8 @@ export const Text = {
         color: font.color,
         fontSize: font.size,
         fontFamily: font.family,
-        lineHeight: font.size + 2,
-    },
+        lineHeight: font.size + 2
+    }
 };
 
 export const TextHeading1 = {
@@ -32,8 +32,8 @@ export const TextHeading1 = {
         fontWeight: font.weightSemiBold,
         fontSize: font.sizeH1,
         fontFamily: font.family,
-        lineHeight: font.sizeH1,
-    },
+        lineHeight: font.sizeH1
+    }
 };
 export const TextHeading2 = {
     container: {},
@@ -41,8 +41,8 @@ export const TextHeading2 = {
         fontWeight: font.weightSemiBold,
         fontSize: font.sizeH2,
         fontFamily: font.family,
-        lineHeight: font.sizeH2,
-    },
+        lineHeight: font.sizeH2
+    }
 };
 export const TextHeading3 = {
     container: {},
@@ -50,8 +50,8 @@ export const TextHeading3 = {
         fontWeight: font.weightSemiBold,
         fontSize: font.sizeH3,
         fontFamily: font.family,
-        lineHeight: font.sizeH3,
-    },
+        lineHeight: font.sizeH3
+    }
 };
 export const TextHeading4 = {
     container: {},
@@ -59,8 +59,8 @@ export const TextHeading4 = {
         fontWeight: font.weightSemiBold,
         fontSize: font.sizeH4,
         fontFamily: font.family,
-        lineHeight: font.sizeH4,
-    },
+        lineHeight: font.sizeH4
+    }
 };
 export const TextHeading5 = {
     container: {},
@@ -68,8 +68,8 @@ export const TextHeading5 = {
         fontWeight: font.weightSemiBold,
         fontSize: font.sizeH5,
         fontFamily: font.family,
-        lineHeight: font.sizeH5,
-    },
+        lineHeight: font.sizeH5
+    }
 };
 export const TextHeading6 = {
     container: {},
@@ -77,6 +77,6 @@ export const TextHeading6 = {
         fontWeight: font.weightSemiBold,
         fontSize: font.sizeH6,
         fontFamily: font.family,
-        lineHeight: font.sizeH6,
-    },
+        lineHeight: font.sizeH6
+    }
 };

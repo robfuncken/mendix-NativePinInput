@@ -1,4 +1,4 @@
-import { Platform }           from "react-native";
+import { Platform } from "react-native";
 import { background, border } from "../variables";
 
 //
@@ -11,56 +11,56 @@ import { background, border } from "../variables";
 // Hide on Android
 export const hideOnAndroid = {
     container: {
-        display: Platform.select({ android: "none" }),
-    },
+        display: Platform.select({ android: "none" })
+    }
 };
 // Hide on iOS
 export const hideOnIos = {
     container: {
-        display: Platform.select({ ios: "none" }),
-    },
+        display: Platform.select({ ios: "none" })
+    }
 };
 
 //== Background Colors
 export const backgroundPrimary = {
     container: {
-        backgroundColor: background.primary,
-    },
+        backgroundColor: background.primary
+    }
 };
 export const backgroundSecondary = {
     container: {
-        backgroundColor: background.secondary,
-    },
+        backgroundColor: background.secondary
+    }
 };
 export const backgroundBrandPrimary = {
     container: {
-        backgroundColor: background.brandPrimary,
-    },
+        backgroundColor: background.brandPrimary
+    }
 };
 export const backgroundBrandSuccess = {
     container: {
-        backgroundColor: background.brandSuccess,
-    },
+        backgroundColor: background.brandSuccess
+    }
 };
 export const backgroundBrandWarning = {
     container: {
-        backgroundColor: background.brandWarning,
-    },
+        backgroundColor: background.brandWarning
+    }
 };
 export const backgroundBrandDanger = {
     container: {
-        backgroundColor: background.brandDanger,
-    },
+        backgroundColor: background.brandDanger
+    }
 };
 export const backgroundGray = {
     container: {
-        backgroundColor: background.gray,
-    },
+        backgroundColor: background.gray
+    }
 };
 
 export const borderBottom = {
     container: {
         borderColor: border.color,
-        borderBottomWidth: border.width,
-    },
+        borderBottomWidth: border.width
+    }
 };

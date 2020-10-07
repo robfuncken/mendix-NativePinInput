@@ -16,21 +16,21 @@ import { contrast } from "../variables.js";
 export const Image = {
     container: {
         // RippleColor & All ViewStyle properties are allowed
-        rippleColor: contrast.lowest,
+        rippleColor: contrast.lowest
     },
     image: {
         // All ImageStyle properties are allowed
-        resizeMode: "cover",
-    },
+        resizeMode: "cover"
+    }
 };
 
 export const ImageViewer = {
     container: {
         // RippleColor & All ViewStyle properties are allowed
-        rippleColor: contrast.lowest,
+        rippleColor: contrast.lowest
     },
     image: {
         // All ImageStyle properties are allowed
-        resizeMode: "cover",
-    },
+        resizeMode: "cover"
+    }
 };

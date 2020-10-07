@@ -4,13 +4,13 @@ export const darkContainer = {
     container: {
         backgroundColor: "#000000"
     }
-}
+};
 
 export const lightContainer = {
     container: {
         backgroundColor: "#FFFFFF"
     }
-}
+};
 
 export const customStyles = {
     readonlyText: {

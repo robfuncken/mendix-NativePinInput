@@ -1,10 +1,8 @@
 //================================== CORE ==================================\\
 
-
 // Base
 export * from "./core/base/flex";
 export * from "./core/base/spacing";
-
 
 // Components
 export * from "./core/widgets/activityindicator";
@@ -57,20 +55,14 @@ export * from "./core/widgets/videoplayer";
 export * from "./core/widgets/webview";
 export * from "./core/helpers/helperclasses";
 
-
 //================================= CUSTOM =================================\\
 
 // Layouts
 export * from "./ui_resources/atlas_ui_resources/layouts/layout";
 
-
 // Page Templates
 export * from "./ui_resources/atlas_ui_resources/pagetemplates/maps";
-
 
 // Building blocks
 export * from "./ui_resources/atlas_ui_resources/buildingblocks/card";
 export * from "./ui_resources/atlas_ui_resources/buildingblocks/header";
-
-
-

@@ -15,23 +15,23 @@
 export const listViewSwipeSmallPanels = {
     leftAction: {
         // PanelSize & All ViewStyle properties are allowed
-        panelSize: 150,
+        panelSize: 150
     },
     rightAction: {
         // PanelSize & All ViewStyle properties are allowed
-        panelSize: 150,
-    },
+        panelSize: 150
+    }
 };
 
 export const listViewSwipeLargePanels = {
     leftAction: {
         // PanelSize & All ViewStyle properties are allowed
-        panelSize: 250,
+        panelSize: 250
     },
     rightAction: {
         // PanelSize & All ViewStyle properties are allowed
-        panelSize: 250,
-    },
+        panelSize: 250
+    }
 };
 
 //== Extra Classes

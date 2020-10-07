@@ -20,25 +20,25 @@ export const com_mendix_widget_native_progresscircle_ProgressCircle = {
     circle: {
         // Only the size & borderWidth & borderColor properties are allowed
         size: 80,
-        borderWidth: 0,
+        borderWidth: 0
     },
     fill: {
         // Only the width & backgroundColor & lineCapRounded properties are allowed
         backgroundColor: brand.primary,
         width: 5, // Thickness,
-        lineCapRounded: true,
+        lineCapRounded: true
     },
     text: {
         // All TextStyle properties are allowed
         color: contrast.regular,
         fontSize: font.size,
         fontWeight: font.weightSemiBold,
-        fontFamily: font.family,
+        fontFamily: font.family
     },
     validationMessage: {
         // All TextStyle properties are allowed
         color: input.errorColor,
         fontSize: font.size,
-        fontFamily: font.family,
-    },
+        fontFamily: font.family
+    }
 };

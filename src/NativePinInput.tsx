@@ -7,8 +7,7 @@ import { commonStyles, circleStyles, numKeyboardStyles, darkStyles, lightStyles 
 import { PinInputButton } from "./components/PinInputButton";
 import { ValueStatus } from "mendix";
 import { DeleteButton } from "./components/DeleteButton";
-import { TouchIDButton } from "./components/TouchIDButton";
-import TouchID from "react-native-touch-id";
+import { TouchIDButton } from './components/TouchIDButton';
 
 export interface CustomStyle extends Style {
     container: ViewStyle;
@@ -41,7 +40,6 @@ const deviceDarkMode =
         ? NativeModules.RNDarkMode.initialMode === "dark"
         : false;
 
-
 export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> {
     private readonly mergedStyle: CustomStyle;
 
@@ -52,20 +50,20 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         // These must be placed at the top of the array, using unshift, to allow overrule by project theme styles and design properties.
         const styleArray: CustomStyle[] = [...this.props.style];
         switch (this.props.darkMode) {
-        case "dark":
-            styleArray.unshift(darkStyles);
-            break;
-    
-        case "light":
-            styleArray.unshift(lightStyles);
-            break;
-    
-        default:
-            if (deviceDarkMode) {
+            case "dark":
                 styleArray.unshift(darkStyles);
-            } else {
+                break;
+
+            case "light":
                 styleArray.unshift(lightStyles);
-            }
+                break;
+
+            default:
+                if (deviceDarkMode) {
+                    styleArray.unshift(darkStyles);
+                } else {
+                    styleArray.unshift(lightStyles);
+                }
         }
         if (this.props.buttonStyle === "circle") {
             styleArray.unshift(circleStyles);
@@ -75,9 +73,9 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         this.mergedStyle = flattenStyles(defaultStyle, styleArray);
 
         this.onClick = this.onClick.bind(this);
-        this.onClickTouchID = this.onClickTouchID.bind(this)
         this.onDeleteClick = this.onDeleteClick.bind(this);
-    };
+        this.onClickTouchID = this.onClickTouchID.bind(this);
+    }
 
     state = {
         textValue: "",
@@ -89,7 +87,12 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         const { dataAttr } = this.props;
         const { dataAttr: nextDataAttr } = nextProps;
 
-        if (dataAttr && dataAttr.status === ValueStatus.Available && nextDataAttr && nextDataAttr.status === ValueStatus.Available) {
+        if (
+            dataAttr &&
+            dataAttr.status === ValueStatus.Available &&
+            nextDataAttr &&
+            nextDataAttr.status === ValueStatus.Available
+        ) {
             if (dataAttr.value && !nextDataAttr.value) {
                 // Clear state if we receive empty value
                 this.setState({
@@ -98,21 +101,9 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
                 });
             }
         }
-
-    }
-      
-
-    componentDidMount() {
-        TouchID.authenticate('to demo this react-native component')
-        .then(this.toggleText)
-    }
-
-    toggleText() {
-        this.setState({auth: true})
     }
 
     render(): ReactNode {
-
         return (
             <View style={this.mergedStyle.container}>
                 <View style={this.mergedStyle.valueRow}>
@@ -120,37 +111,36 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
                         editable={false}
                         style={this.mergedStyle.readonlyText}
                         value={this.state.displayValue}
-                        secureTextEntry={true} />
+                        secureTextEntry={true}
+                    />
                     {this.renderValidation()}
                 </View>
                 <View style={this.mergedStyle.buttonRow}>
-                    <PinInputButton caption="1" style={this.mergedStyle} onClick={this.onClick}/>
-                    <PinInputButton caption="2" style={this.mergedStyle} onClick={this.onClick}/>
-                    <PinInputButton caption="3" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="1" style={this.mergedStyle} onClick={this.onClick} />
+                    <PinInputButton caption="2" style={this.mergedStyle} onClick={this.onClick} />
+                    <PinInputButton caption="3" style={this.mergedStyle} onClick={this.onClick} />
                 </View>
                 <View style={this.mergedStyle.buttonRow}>
-                    <PinInputButton caption="4" style={this.mergedStyle} onClick={this.onClick}/>
-                    <PinInputButton caption="5" style={this.mergedStyle} onClick={this.onClick}/>
-                    <PinInputButton caption="6" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="4" style={this.mergedStyle} onClick={this.onClick} />
+                    <PinInputButton caption="5" style={this.mergedStyle} onClick={this.onClick} />
+                    <PinInputButton caption="6" style={this.mergedStyle} onClick={this.onClick} />
                 </View>
                 <View style={this.mergedStyle.buttonRow}>
-                    <PinInputButton caption="7" style={this.mergedStyle} onClick={this.onClick}/>
-                    <PinInputButton caption="8" style={this.mergedStyle} onClick={this.onClick}/>
-                    <PinInputButton caption="9" style={this.mergedStyle} onClick={this.onClick}/>
+                    <PinInputButton caption="7" style={this.mergedStyle} onClick={this.onClick} />
+                    <PinInputButton caption="8" style={this.mergedStyle} onClick={this.onClick} />
+                    <PinInputButton caption="9" style={this.mergedStyle} onClick={this.onClick} />
                 </View>
                 <View style={this.mergedStyle.buttonRow}>
-                    <TouchIDButton onClickTouchID={this.onClickTouchID}> </TouchIDButton>
-                    <PinInputButton caption="0" style={this.mergedStyle} onClick={this.onClick}/>
+                    <TouchIDButton touchIDButtonIcon={this.props.touchIDButtonIcon} onClick={this.onClickTouchID} style={this.mergedStyle} />
+                    <PinInputButton caption="0" style={this.mergedStyle} onClick={this.onClick} />
                     <DeleteButton
                         deleteButtonIcon={this.props.deleteButtonIcon}
                         style={this.mergedStyle}
                         onClick={this.onDeleteClick}
                     />
                 </View>
-                <Text>  {this.state.auth ? "AUTHENTICATED " : "NOT AUTHENTICATED "}</Text>
             </View>
         );
-
     }
 
     renderValidation(): ReactNode {
@@ -160,34 +150,31 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
         } else {
             validation = " ";
         }
-        return (
-            <Text style={this.mergedStyle.validationMessage}>
-            {validation}
-        </Text>
-        );
+        return <Text style={this.mergedStyle.validationMessage}>{validation}</Text>;
     }
 
-    onClickTouchID() {
-            TouchID.authenticate('to demo this react-native component')
-            .then(console.log("Gelukt!"))
-            
-   }
+        onClickTouchID() {
+            const {onTouchIdAction } = this.props;
 
+            if (onTouchIdAction && onTouchIdAction.canExecute && !onTouchIdAction.isExecuting) {
+                onTouchIdAction.execute();
+            }
+
+       }
 
     onClick(value: string) {
-
         const { dataAttr, onChangeAction, onInputCompleteAction } = this.props;
 
         if (!dataAttr || dataAttr.status !== ValueStatus.Available) {
             return;
         }
-        // Add input if not at maximum length yet
+           // Add input if not at maximum length yet
         let displayValueLength = this.state.textValue.length;
         if (displayValueLength < this.props.maxLength) {
             // Add digit to value
             dataAttr.setTextValue(this.state.textValue + value);
             this.setState({
-                displayValue: this.state.displayValue + '*',
+                displayValue: this.state.displayValue + "*",
                 textValue: this.state.textValue + value
             });
             displayValueLength++;
@@ -205,9 +192,8 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
             }
         }
     }
-    
-    onDeleteClick() {
 
+    onDeleteClick() {
         const { dataAttr, onChangeAction } = this.props;
 
         if (!dataAttr || dataAttr.status !== ValueStatus.Available) {
@@ -222,7 +208,7 @@ export class NativePinInput extends Component<NativePinInputProps<CustomStyle>> 
             });
             if (onChangeAction && onChangeAction.canExecute && !onChangeAction.isExecuting) {
                 onChangeAction.execute();
-        }
+            }
         }
     }
 }

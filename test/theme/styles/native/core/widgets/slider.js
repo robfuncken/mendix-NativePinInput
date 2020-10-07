@@ -1,5 +1,5 @@
-import { Platform }                                         from "react-native";
-import { shadeBlendConvert }                                from "../helpers/_functions/shadeblendconvert.js";
+import { Platform } from "react-native";
+import { shadeBlendConvert } from "../helpers/_functions/shadeblendconvert.js";
 import { background, border, brand, contrast, font, input } from "../variables";
 
 //
@@ -18,24 +18,24 @@ import { background, border, brand, contrast, font, input } from "../variables";
 export const com_mendix_widget_native_slider_Slider = {
     container: {
         // All ViewStyle properties are allowed
-        alignSelf: "stretch",
+        alignSelf: "stretch"
     },
     track: {
         // All ViewStyle properties are allowed
-        backgroundColor: contrast.lower,
+        backgroundColor: contrast.lower
     },
     trackDisabled: {
         // All ViewStyle properties are allowed
         backgroundColor: contrast.lower,
-        opacity: Platform.select({ ios: 0.4 }),
+        opacity: Platform.select({ ios: 0.4 })
     },
     highlight: {
         // All ViewStyle properties are allowed
-        backgroundColor: brand.primary,
+        backgroundColor: brand.primary
     },
     highlightDisabled: {
         // All ViewStyle properties are allowed
-        backgroundColor: Platform.select({ ios: brand.primary, android: contrast.low }),
+        backgroundColor: Platform.select({ ios: brand.primary, android: contrast.low })
     },
     marker: {
         // All ViewStyle properties are allowed
@@ -47,16 +47,16 @@ export const com_mendix_widget_native_slider_Slider = {
                 shadowColor: shadeBlendConvert(-0.3, background.primary),
                 shadowOpacity: 0.2,
                 borderColor: contrast.lowest,
-                shadowOffset: { width: 0, height: 1 },
+                shadowOffset: { width: 0, height: 1 }
             },
             android: {
                 width: 20,
                 height: 20,
                 borderRadius: 10,
                 elevation: 3,
-                borderColor: border.color,
-            },
-        }),
+                borderColor: border.color
+            }
+        })
     },
     markerActive: {
         // All ViewStyle properties are allowed
@@ -65,9 +65,9 @@ export const com_mendix_widget_native_slider_Slider = {
                 borderWidth: 0,
                 width: 34,
                 height: 34,
-                borderRadius: 17,
-            },
-        }),
+                borderRadius: 17
+            }
+        })
     },
     markerDisabled: {
         // All ViewStyle properties are allowed
@@ -77,7 +77,7 @@ export const com_mendix_widget_native_slider_Slider = {
                 backgroundColor: background.secondary,
                 shadowColor: shadeBlendConvert(-0.3, background.primary),
                 shadowOpacity: 0.2,
-                shadowOffset: { width: 0, height: 1 },
+                shadowOffset: { width: 0, height: 1 }
             },
             android: {
                 marginTop: 1,
@@ -86,14 +86,14 @@ export const com_mendix_widget_native_slider_Slider = {
                 borderWidth: 3,
                 width: 14,
                 height: 14,
-                borderRadius: 7,
-            },
-        }),
+                borderRadius: 7
+            }
+        })
     },
     validationMessage: {
         // All TextStyle properties are allowed
         color: input.errorColor,
         fontSize: font.size,
-        fontFamily: font.family,
-    },
+        fontFamily: font.family
+    }
 };

@@ -1,6 +1,6 @@
-import { Platform }            from "react-native";
+import { Platform } from "react-native";
 import { anyColorToRgbString } from "../helpers/_functions/convertcolors";
-import { brand, font, input }  from "../variables";
+import { brand, font, input } from "../variables";
 
 //
 // DISCLAIMER:
@@ -18,29 +18,29 @@ import { brand, font, input }  from "../variables";
 export const com_mendix_widget_native_progressbar_ProgressBar = {
     container: {
         // All ViewStyle properties are allowed
-        alignSelf: "stretch",
+        alignSelf: "stretch"
     },
     bar: {
         // All ViewStyle properties are allowed
         ...Platform.select({
             ios: {
-                borderColor: brand.primary,
+                borderColor: brand.primary
             },
             android: {
                 borderRadius: 0,
                 borderWidth: 0,
-                backgroundColor: `rgba(${anyColorToRgbString(brand.primary)},0.2)`,
-            },
-        }),
+                backgroundColor: `rgba(${anyColorToRgbString(brand.primary)},0.2)`
+            }
+        })
     },
     fill: {
         //Only the backgroundColor property is allowed
-        backgroundColor: brand.primary,
+        backgroundColor: brand.primary
     },
     validationMessage: {
         // All TextStyle properties are allowed
         color: input.errorColor,
         fontSize: font.size,
-        fontFamily: font.family,
+        fontFamily: font.family
     }
 };
